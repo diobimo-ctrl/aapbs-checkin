@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAPBS 2026 Check-in</title>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+<style>
+  body {
+    margin: 0;
+    background: #f3f5f7;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+  }
+
+  .container {
+    max-width: 650px;
+    margin: 24px auto;
+    padding: 16px;
+  }
+
+  .card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.10);
+  }
+
+  h1 {
+    text-align: center;
+    margin: 0 0 6px;
+    font-size: 26px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: 700;
+  }
+
+  select, button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    margin: 9px 0 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  #reader {
+    width: 100%;
+  }
+
+  #result, #backendStatus {
+    display: none;
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .success {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .duplicate {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .invalid {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .processing {
+    background: #d9edf7;
+    color: #0c5460;
+  }
+
+  .hint {
+    font-size: 13px;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 12px;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card">
+    <h1>AAPBS Annual Meeting 2026</h1>
+    <div class="subtitle">Participant Check-in</div>
+
+    <label for="scannerLocation">Scanner Location</label>
+    <select id="scannerLocation">
+      <option value="Main Entrance">Main Entrance</option>
+      <option value="Registration Desk">Registration Desk</option>
+      <option value="Ballroom Entrance">Ballroom Entrance</option>
+      <option value="Seminar Room">Seminar Room</option>
+    </select>
+
+    <button id="testBackendBtn" type="button">Test Database Connection</button>
+    <div id="backendStatus"></div>
+
+    <div id="reader"></div>
+    <div id="result"></div>
+
+    <div class="hint">
+      Allow camera access when requested. If scanning fails, use “Scan an Image File” for testing.
+    </div>
+  </div>
+</div>
+
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsN2SGpg8zm1Nl5HJ_-OB4k__m2uW60avtbs3cjYID_ZycgtzLSKgV3DQObFGJR2REyQ/exec";
+
+let scanLocked = false;
+let jsonpCounter = 0;
+
+function jsonpRequest(params, onSuccess, onError) {
+  jsonpCounter += 1;
+  const callbackName = "aapbsCallback" + Date.now() + "_" + jsonpCounter;
+  const script = document.createElement("script");
+  let finished = false;
+
+  const cleanup = () => {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timer);
+    try { delete window[callbackName]; } catch (_) {}
+    if (script.parentNode) script.parentNode.removeChild(script);
+  };
+
+  window[callbackName] = function(response) {
+    cleanup();
+    onSuccess(response);
+  };
+
+  const query = new URLSearchParams({
+    ...params,
+    callback: callbackName,
+    _ts: String(Date.now())
+  });
+
+  script.src = WEB_APP_URL + "?" + query.toString();
+  script.async = true;
+
+  script.onerror = function() {
+    cleanup();
+    onError("Backend request gagal dimuat. Pastikan Web App dapat diakses sebagai Anyone.");
+  };
+
+  const timer = setTimeout(function() {
+    cleanup();
+    onError("Backend tidak merespons dalam 12 detik.");
+  }, 12000);
+
+  document.body.appendChild(script);
+}
+
+function setBox(id, cls, html) {
+  const el = document.getElementById(id);
+  el.className = cls;
+  el.innerHTML = html;
+  el.style.display = "block";
+}
+
+function escapeHtml(text) {
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+document.getElementById("testBackendBtn").addEventListener("click", function() {
+  setBox("backendStatus", "processing", "<strong>Testing database connection...</strong>");
+
+  jsonpRequest(
+    { action: "ping" },
+    function(response) {
+      if (response && response.success) {
+        setBox(
+          "backendStatus",
+          "success",
+          "✅ " + escapeHtml(response.message || "Database connected.")
+        );
+      } else {
+        setBox(
+          "backendStatus",
+          "invalid",
+          "❌ Backend merespons, tetapi hasilnya tidak sesuai."
+        );
+      }
+    },
+    function(message) {
+      setBox(
+        "backendStatus",
+        "invalid",
+        "❌ " + escapeHtml(message)
+      );
+    }
+  );
+});
+
+function onScanSuccess(decodedText) {
+  if (scanLocked) return;
+
+  scanLocked = true;
+
+  setBox(
+    "result",
+    "processing",
+    "<h2>Checking...</h2><p>QR sedang diverifikasi.</p>"
+  );
+
+  const location = document.getElementById("scannerLocation").value;
+
+  jsonpRequest(
+    {
+      action: "checkin",
+      token: decodedText.trim(),
+      location: location
+    },
+    function(response) {
+      showResult(response);
+    },
+    function(message) {
+      setBox(
+        "result",
+        "invalid",
+        "<h2>❌ CONNECTION ERROR</h2><p>" + escapeHtml(message) + "</p>"
+      );
+      setTimeout(resetScanner, 4000);
+    }
+  );
+}
+
+function showResult(response) {
+  if (!response) {
+    setBox(
+      "result",
+      "invalid",
+      "<h2>❌ ERROR</h2><p>Backend tidak mengirim respons.</p>"
+    );
+    setTimeout(resetScanner, 3500);
+    return;
+  }
+
+  if (response.type === "success") {
+    setBox(
+      "result",
+      "success",
+      "<h2>✅ CHECK-IN SUCCESS</h2>" +
+      "<h3>" + escapeHtml(response.name) + "</h3>" +
+      "<p>" + escapeHtml(response.institution) + "</p>" +
+      "<p><strong>" + escapeHtml(response.location) + "</strong></p>"
+    );
+
+  } else if (response.type === "duplicate") {
+    setBox(
+      "result",
+      "duplicate",
+      "<h2>⚠️ ALREADY CHECKED IN</h2>" +
+      "<h3>" + escapeHtml(response.name) + "</h3>" +
+      "<p>" + escapeHtml(response.institution) + "</p>" +
+      "<p>Previous check-in:<br>" +
+      escapeHtml(response.checkInTime) +
+      "</p>"
+    );
+
+  } else {
+    setBox(
+      "result",
+      "invalid",
+      "<h2>❌ " +
+      (response.type === "invalid" ? "INVALID QR CODE" : "ERROR") +
+      "</h2><p>" +
+      escapeHtml(response.message || "Participant tidak ditemukan.") +
+      "</p>"
+    );
+  }
+
+  setTimeout(resetScanner, 3500);
+}
+
+function resetScanner() {
+  document.getElementById("result").style.display = "none";
+  scanLocked = false;
+}
+
+const scanner = new Html5QrcodeScanner(
+  "reader",
+  {
+    fps: 10,
+    qrbox: { width: 250, height: 250 },
+    rememberLastUsedCamera: true,
+    showTorchButtonIfSupported: true,
+    showZoomSliderIfSupported: true
+  },
+  false
+);
+
+scanner.render(onScanSuccess);
+</script>
+</body>
+</html>
