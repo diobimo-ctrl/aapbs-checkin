@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AAPBS 2026 Check-in</title>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #f3f5f7;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.10);
+}
+
+.logo-title {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 20px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+#reader {
+  width: 100%;
+}
+
+#result {
+  display: none;
+  margin-top: 20px;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.duplicate {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.invalid {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.processing {
+  background: #d9edf7;
+  color: #0c5460;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="logo-title">
+      <h1>AAPBS Annual Meeting 2026</h1>
+      <div class="subtitle">Participant Check-in</div>
+    </div>
+
+    <label>Scanner Location</label>
+
+    <select id="scannerLocation">
+      <option value="Main Entrance">Main Entrance</option>
+      <option value="Registration Desk">Registration Desk</option>
+      <option value="Ballroom Entrance">Ballroom Entrance</option>
+      <option value="Seminar Room">Seminar Room</option>
+    </select>
+
+    <div id="reader"></div>
+    <div id="result"></div>
+
+  </div>
+</div>
+
+<script>
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbzsN2SGpg8zm1Nl5HJ_-OB4k__m2uW60avtbs3cjYID_ZycgtzLSKgV3DQObFGJR2REyQ/exec";
+
+let scanLocked = false;
+
+function onScanSuccess(decodedText) {
+  if (scanLocked) return;
+
+  scanLocked = true;
+  showProcessing();
+
+  const location =
+    document.getElementById("scannerLocation").value;
+
+  sendCheckIn(decodedText, location);
+}
+
+function sendCheckIn(token, location) {
+  const callbackName =
+    "callback_" +
+    Date.now() +
+    "_" +
+    Math.floor(Math.random() * 100000);
+
+  const script = document.createElement("script");
+
+  window[callbackName] = function(response) {
+    try {
+      showResult(response);
+    } finally {
+      delete window[callbackName];
+      script.remove();
+    }
+  };
+
+  const url =
+    WEB_APP_URL +
+    "?action=checkin" +
+    "&token=" +
+    encodeURIComponent(token) +
+    "&location=" +
+    encodeURIComponent(location) +
+    "&callback=" +
+    encodeURIComponent(callbackName);
+
+  script.src = url;
+
+  script.onerror = function() {
+    showError("Tidak dapat terhubung ke database.");
+    delete window[callbackName];
+    script.remove();
+  };
+
+  document.body.appendChild(script);
+}
+
+function showProcessing() {
+  const result = document.getElementById("result");
+
+  result.style.display = "block";
+  result.className = "processing";
+  result.innerHTML = "<h2>Checking...</h2>";
+}
+
+function showResult(response) {
+  const result = document.getElementById("result");
+
+  result.style.display = "block";
+
+  if (response.type === "success") {
+    result.className = "success";
+    result.innerHTML =
+      "<h2>✅ CHECK-IN SUCCESS</h2>" +
+      "<h3>" + escapeHtml(response.name) + "</h3>" +
+      "<p>" + escapeHtml(response.institution) + "</p>" +
+      "<p><strong>" + escapeHtml(response.location) + "</strong></p>";
+
+  } else if (response.type === "duplicate") {
+    result.className = "duplicate";
+    result.innerHTML =
+      "<h2>⚠️ ALREADY CHECKED IN</h2>" +
+      "<h3>" + escapeHtml(response.name) + "</h3>" +
+      "<p>" + escapeHtml(response.institution) + "</p>" +
+      "<p>Previous check-in:<br>" +
+      escapeHtml(response.checkInTime) +
+      "</p>";
+
+  } else {
+    result.className = "invalid";
+    result.innerHTML =
+      "<h2>❌ INVALID QR CODE</h2>" +
+      "<p>" +
+      escapeHtml(
+        response.message || "Participant tidak ditemukan."
+      ) +
+      "</p>";
+  }
+
+  setTimeout(resetScanner, 3000);
+}
+
+function showError(message) {
+  const result = document.getElementById("result");
+
+  result.style.display = "block";
+  result.className = "invalid";
+  result.innerHTML =
+    "<h2>❌ ERROR</h2>" +
+    "<p>" + escapeHtml(message) + "</p>";
+
+  setTimeout(resetScanner, 3000);
+}
+
+function resetScanner() {
+  document.getElementById("result").style.display = "none";
+  scanLocked = false;
+}
+
+function escapeHtml(text) {
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+const scanner =
+  new Html5QrcodeScanner(
+    "reader",
+    {
+      fps: 10,
+      qrbox: {
+        width: 250,
+        height: 250
+      },
+      rememberLastUsedCamera: true,
+      showTorchButtonIfSupported: true,
+      showZoomSliderIfSupported: true
+    },
+    false
+  );
+
+scanner.render(onScanSuccess);
+</script>
+
+</body>
+</html>
