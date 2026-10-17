@@ -110,6 +110,23 @@ select {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+.next-button {
+  margin-top: 20px;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #1f4e78;
+  color: #ffffff;
+}
+
+.next-button:hover {
+  opacity: 0.92;
+}
 </style>
 
 </head>
@@ -131,10 +148,21 @@ select {
     </label>
 
     <select id="scannerLocation">
-      <option value="Main Entrance">Main Entrance</option>
-      <option value="Registration Desk">Registration Desk</option>
-      <option value="Ballroom Entrance">Ballroom Entrance</option>
-      <option value="Seminar Room">Seminar Room</option>
+      <option value="Main Entrance">
+        Main Entrance
+      </option>
+
+      <option value="Registration Desk">
+        Registration Desk
+      </option>
+
+      <option value="Ballroom Entrance">
+        Ballroom Entrance
+      </option>
+
+      <option value="Seminar Room">
+        Seminar Room
+      </option>
     </select>
 
     <div id="reader"></div>
@@ -154,14 +182,24 @@ select {
 <script>
 
 const WEB_APP_URL =
-"https://script.google.com/macros/s/AKfycbyOwTh_jI1WQ0EgpJ5ouz_leRguV47yHGLgWbeImkrtVuIZV1tcAKQBI7WPNPjuU-df2A/exec";
+"https://script.google.com/macros/s/AKfycbzsN2SGpg8zm1Nl5HJ_-OB4k__m2uW60avtbs3cjYID_ZycgtzLSKgV3DQObFGJR2REyQ/exec";
 
 
 let scanLocked = false;
 let jsonpCounter = 0;
 
 
-function jsonpRequest(params, onSuccess, onError) {
+/*
+========================================
+JSONP REQUEST TO APPS SCRIPT
+========================================
+*/
+
+function jsonpRequest(
+  params,
+  onSuccess,
+  onError
+) {
 
   jsonpCounter++;
 
@@ -176,32 +214,40 @@ function jsonpRequest(params, onSuccess, onError) {
 
   let finished = false;
 
+
   const timer =
-    setTimeout(function() {
+    setTimeout(
+      function() {
 
-      if (finished) return;
+        if (finished) {
+          return;
+        }
 
-      finished = true;
+        finished = true;
 
-      try {
-        delete window[callbackName];
-      } catch (e) {}
+        try {
+          delete window[callbackName];
+        } catch (e) {}
 
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
 
-      onError(
-        "Database tidak merespons. Silakan coba kembali."
-      );
+        onError(
+          "Database tidak merespons. Silakan coba kembali."
+        );
 
-    }, 15000);
+      },
+      15000
+    );
 
 
   window[callbackName] =
     function(response) {
 
-      if (finished) return;
+      if (finished) {
+        return;
+      }
 
       finished = true;
 
@@ -236,7 +282,9 @@ function jsonpRequest(params, onSuccess, onError) {
   script.onerror =
     function() {
 
-      if (finished) return;
+      if (finished) {
+        return;
+      }
 
       finished = true;
 
@@ -260,7 +308,17 @@ function jsonpRequest(params, onSuccess, onError) {
 }
 
 
-function setBox(id, className, content) {
+/*
+========================================
+DISPLAY BOX
+========================================
+*/
+
+function setBox(
+  id,
+  className,
+  content
+) {
 
   const element =
     document.getElementById(id);
@@ -276,6 +334,12 @@ function setBox(id, className, content) {
 }
 
 
+/*
+========================================
+ESCAPE HTML
+========================================
+*/
+
 function escapeHtml(text) {
 
   return String(text || "")
@@ -287,11 +351,61 @@ function escapeHtml(text) {
 }
 
 
-function onScanSuccess(decodedText) {
+/*
+========================================
+BUTTON: SCAN NEXT PARTICIPANT
+========================================
+*/
+
+function showContinueButton() {
+
+  const result =
+    document.getElementById(
+      "result"
+    );
+
+  const button =
+    document.createElement(
+      "button"
+    );
+
+  button.type =
+    "button";
+
+  button.className =
+    "next-button";
+
+  button.innerText =
+    "OK - Scan Next Participant";
+
+  button.onclick =
+    function() {
+
+      resetScanner();
+
+    };
+
+
+  result.appendChild(
+    button
+  );
+}
+
+
+/*
+========================================
+QR SCAN
+========================================
+*/
+
+function onScanSuccess(
+  decodedText
+) {
 
   if (scanLocked) {
     return;
   }
+
 
   scanLocked = true;
 
@@ -299,8 +413,14 @@ function onScanSuccess(decodedText) {
   setBox(
     "result",
     "processing",
-    "<div class='status-title'>Checking...</div>" +
-    "<p>QR Code sedang diverifikasi.</p>"
+
+    "<div class='status-title'>" +
+    "Checking..." +
+    "</div>" +
+
+    "<p>" +
+    "QR Code sedang diverifikasi." +
+    "</p>"
   );
 
 
@@ -322,7 +442,9 @@ function onScanSuccess(decodedText) {
 
     function(response) {
 
-      showResult(response);
+      showResult(
+        response
+      );
 
     },
 
@@ -331,16 +453,17 @@ function onScanSuccess(decodedText) {
       setBox(
         "result",
         "invalid",
-        "<div class='status-title'>❌ CONNECTION ERROR</div>" +
+
+        "<div class='status-title'>" +
+        "❌ CONNECTION ERROR" +
+        "</div>" +
+
         "<p>" +
         escapeHtml(message) +
         "</p>"
       );
 
-      setTimeout(
-        resetScanner,
-        5000
-      );
+      showContinueButton();
 
     }
 
@@ -349,36 +472,60 @@ function onScanSuccess(decodedText) {
 }
 
 
-function showResult(response) {
+/*
+========================================
+SHOW RESULT
+========================================
+*/
+
+function showResult(
+  response
+) {
 
   if (!response) {
 
     setBox(
       "result",
       "invalid",
-      "<div class='status-title'>❌ ERROR</div>" +
-      "<p>No response from database.</p>"
+
+      "<div class='status-title'>" +
+      "❌ ERROR" +
+      "</div>" +
+
+      "<p>" +
+      "No response from database." +
+      "</p>"
     );
 
-    setTimeout(
-      resetScanner,
-      4000
-    );
+    showContinueButton();
 
     return;
   }
 
 
-  if (response.type === "success") {
+  /*
+  ========================================
+  CHECK-IN SUCCESS
+  ========================================
+  */
+
+  if (
+    response.type ===
+    "success"
+  ) {
 
     setBox(
       "result",
       "success",
 
-      "<div class='status-title'>✅ CHECK-IN SUCCESS</div>" +
+      "<div class='status-title'>" +
+      "✅ CHECK-IN SUCCESS" +
+      "</div>" +
 
       "<h2>" +
-      escapeHtml(response.name) +
+      escapeHtml(
+        response.name
+      ) +
       "</h2>" +
 
       "<p>" +
@@ -387,24 +534,39 @@ function showResult(response) {
       ) +
       "</p>" +
 
-      "<p>Payment Status:<br>" +
+      "<p>" +
+      "Payment Status:<br>" +
+
       "<strong>" +
       escapeHtml(
         response.paymentStatus
       ) +
-      "</strong></p>" +
+      "</strong>" +
 
-      "<p>Location:<br>" +
+      "</p>" +
+
+      "<p>" +
+      "Location:<br>" +
+
       "<strong>" +
       escapeHtml(
         response.location
       ) +
-      "</strong></p>"
+      "</strong>" +
 
+      "</p>"
     );
+
+    showContinueButton();
 
   }
 
+
+  /*
+  ========================================
+  ALREADY CHECKED-IN
+  ========================================
+  */
 
   else if (
     response.type ===
@@ -415,7 +577,9 @@ function showResult(response) {
       "result",
       "duplicate",
 
-      "<div class='status-title'>⚠️ ALREADY CHECKED IN</div>" +
+      "<div class='status-title'>" +
+      "⚠️ ALREADY CHECKED IN" +
+      "</div>" +
 
       "<h2>" +
       escapeHtml(
@@ -429,18 +593,28 @@ function showResult(response) {
       ) +
       "</p>" +
 
-      "<p>Previous Check-in:<br>" +
+      "<p>" +
+      "Previous Check-in:<br>" +
 
       "<strong>" +
       escapeHtml(
         response.checkInTime
       ) +
-      "</strong></p>"
+      "</strong>" +
 
+      "</p>"
     );
+
+    showContinueButton();
 
   }
 
+
+  /*
+  ========================================
+  CASH ONSITE
+  ========================================
+  */
 
   else if (
     response.type ===
@@ -451,7 +625,9 @@ function showResult(response) {
       "result",
       "cash",
 
-      "<div class='status-title'>⚠️ CASH ONSITE</div>" +
+      "<div class='status-title'>" +
+      "⚠️ CASH ONSITE" +
+      "</div>" +
 
       "<h2>" +
       escapeHtml(
@@ -465,16 +641,28 @@ function showResult(response) {
       ) +
       "</p>" +
 
-      "<p>Please proceed to the " +
+      "<p>" +
+      "Please proceed to the " +
 
-      "<strong>Registration Desk</strong>" +
+      "<strong>" +
+      "Registration Desk" +
+      "</strong>" +
 
-      " for payment verification.</p>"
+      " for payment verification." +
 
+      "</p>"
     );
+
+    showContinueButton();
 
   }
 
+
+  /*
+  ========================================
+  PAYMENT NOT VERIFIED
+  ========================================
+  */
 
   else if (
     response.type ===
@@ -485,7 +673,9 @@ function showResult(response) {
       "result",
       "payment",
 
-      "<div class='status-title'>❌ PAYMENT NOT VERIFIED</div>" +
+      "<div class='status-title'>" +
+      "❌ PAYMENT NOT VERIFIED" +
+      "</div>" +
 
       "<h2>" +
       escapeHtml(
@@ -499,20 +689,32 @@ function showResult(response) {
       ) +
       "</p>" +
 
-      "<p>Payment Status:<br>" +
+      "<p>" +
+      "Payment Status:<br>" +
 
       "<strong>" +
       escapeHtml(
         response.paymentStatus
       ) +
-      "</strong></p>" +
+      "</strong>" +
 
-      "<p>Please contact the Registration Desk.</p>"
+      "</p>" +
 
+      "<p>" +
+      "Please contact the Registration Desk." +
+      "</p>"
     );
+
+    showContinueButton();
 
   }
 
+
+  /*
+  ========================================
+  INVALID QR
+  ========================================
+  */
 
   else if (
     response.type ===
@@ -523,19 +725,28 @@ function showResult(response) {
       "result",
       "invalid",
 
-      "<div class='status-title'>❌ INVALID QR CODE</div>" +
+      "<div class='status-title'>" +
+      "❌ INVALID QR CODE" +
+      "</div>" +
 
       "<p>" +
       escapeHtml(
         response.message ||
-        "Participant tidak ditemukan."
+        "Participant not found."
       ) +
       "</p>"
-
     );
+
+    showContinueButton();
 
   }
 
+
+  /*
+  ========================================
+  SYSTEM ERROR
+  ========================================
+  */
 
   else {
 
@@ -543,7 +754,9 @@ function showResult(response) {
       "result",
       "invalid",
 
-      "<div class='status-title'>❌ SYSTEM ERROR</div>" +
+      "<div class='status-title'>" +
+      "❌ SYSTEM ERROR" +
+      "</div>" +
 
       "<p>" +
       escapeHtml(
@@ -551,34 +764,44 @@ function showResult(response) {
         "Unknown error."
       ) +
       "</p>"
-
     );
 
+    showContinueButton();
+
   }
-
-
-  setTimeout(
-    resetScanner,
-    5000
-  );
 
 }
 
 
+/*
+========================================
+RESET SCANNER
+========================================
+*/
+
 function resetScanner() {
 
-  document
-    .getElementById(
+  const result =
+    document.getElementById(
       "result"
-    )
-    .style
-    .display =
+    );
+
+  result.style.display =
     "none";
+
+  result.innerHTML =
+    "";
 
   scanLocked =
     false;
 }
 
+
+/*
+========================================
+START QR SCANNER
+========================================
+*/
 
 const scanner =
   new Html5QrcodeScanner(
@@ -586,6 +809,7 @@ const scanner =
     "reader",
 
     {
+
       fps: 10,
 
       qrbox: {
@@ -601,6 +825,7 @@ const scanner =
 
       showZoomSliderIfSupported:
         true
+
     },
 
     false
