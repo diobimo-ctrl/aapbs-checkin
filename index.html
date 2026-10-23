@@ -20,7 +20,6 @@
   <style>
 
     :root {
-
       --navy: #0b2f56;
       --navy-dark: #071f3a;
 
@@ -46,21 +45,17 @@
 
       --info: #155da0;
       --info-bg: #e8f2fb;
-
     }
 
 
 
     * {
-
       box-sizing: border-box;
-
     }
 
 
 
     body {
-
       margin: 0;
 
       min-height: 100vh;
@@ -79,9 +74,7 @@
           var(--background) 100%
         );
 
-      color:
-        var(--text);
-
+      color: var(--text);
     }
 
 
@@ -90,78 +83,48 @@
        HEADER
     ===================================================== */
 
-
     .hero {
-
       max-width: 780px;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
-      padding:
-        34px 20px 90px;
+      padding: 34px 20px 90px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
 
 
     .event-badge {
+      display: inline-block;
 
-      display:
-        inline-block;
-
-      padding:
-        8px 16px;
+      padding: 8px 16px;
 
       border:
         1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.35
-        );
+        rgba(255, 255, 255, 0.35);
 
-      border-radius:
-        50px;
+      border-radius: 50px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          0.08
-        );
+        rgba(255, 255, 255, 0.08);
 
-      font-size:
-        12px;
+      font-size: 12px;
+      font-weight: 700;
 
-      font-weight:
-        700;
+      letter-spacing: 1.4px;
 
-      letter-spacing:
-        1.4px;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      margin-bottom:
-        18px;
-
+      margin-bottom: 18px;
     }
 
 
 
     .hero h1 {
-
-      margin:
-        0;
+      margin: 0;
 
       font-size:
         clamp(
@@ -170,39 +133,27 @@
           46px
         );
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      line-height:
-        1.08;
-
+      line-height: 1.08;
     }
 
 
 
     .hero h1 span {
-
-      color:
-        var(--gold-soft);
-
+      color: var(--gold-soft);
     }
 
 
 
     .hero-subtitle {
+      margin-top: 12px;
 
-      margin-top:
-        12px;
+      font-size: 18px;
 
-      font-size:
-        18px;
+      opacity: 0.92;
 
-      opacity:
-        0.92;
-
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
@@ -211,9 +162,7 @@
        MAIN
     ===================================================== */
 
-
     .container {
-
       width:
         min(
           94%,
@@ -222,39 +171,26 @@
 
       margin:
         -58px auto 40px;
-
     }
 
 
 
     .card {
+      background: var(--white);
 
-      background:
-        var(--white);
+      border-radius: 22px;
 
-      border-radius:
-        22px;
-
-      overflow:
-        hidden;
+      overflow: hidden;
 
       box-shadow:
         0 18px 55px
-        rgba(
-          10,
-          31,
-          55,
-          0.18
-        );
-
+        rgba(10, 31, 55, 0.18);
     }
 
 
 
     .card-top-accent {
-
-      height:
-        6px;
+      height: 6px;
 
       background:
         linear-gradient(
@@ -263,61 +199,42 @@
           #f8cc49,
           var(--gold)
         );
-
     }
 
 
 
     .card-content {
-
-      padding:
-        28px;
-
+      padding: 28px;
     }
 
 
 
     .section-heading {
+      text-align: center;
 
-      text-align:
-        center;
-
-      margin-bottom:
-        26px;
-
+      margin-bottom: 26px;
     }
 
 
 
     .section-heading h2 {
+      margin: 0;
 
-      margin:
-        0;
+      color: var(--navy);
 
-      color:
-        var(--navy);
-
-      font-size:
-        26px;
-
+      font-size: 26px;
     }
 
 
 
     .section-heading p {
+      margin: 8px 0 0;
 
-      margin:
-        8px 0 0;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      font-size: 14px;
 
-      font-size:
-        14px;
-
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
@@ -326,59 +243,40 @@
        LOCATION
     ===================================================== */
 
-
     .field {
-
-      margin-bottom:
-        22px;
-
+      margin-bottom: 22px;
     }
 
 
 
     .field label {
+      display: block;
 
-      display:
-        block;
+      font-size: 13px;
 
-      font-size:
-        13px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      color: var(--navy);
 
-      color:
-        var(--navy);
+      margin-bottom: 9px;
 
-      margin-bottom:
-        9px;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        0.7px;
-
+      letter-spacing: 0.7px;
     }
 
 
 
     .select-wrapper {
-
-      position:
-        relative;
-
+      position: relative;
     }
 
 
 
     select {
+      width: 100%;
 
-      width:
-        100%;
-
-      appearance:
-        none;
+      appearance: none;
 
       padding:
         15px 48px 15px 16px;
@@ -386,72 +284,49 @@
       border:
         1px solid #cad6e2;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      font-size:
-        16px;
+      font-size: 16px;
 
-      font-weight:
-        600;
+      font-weight: 600;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      background:
-        var(--white);
+      background: var(--white);
 
-      outline:
-        none;
+      outline: none;
 
       transition:
         all 0.2s ease;
-
     }
 
 
 
     select:focus {
-
-      border-color:
-        var(--blue);
+      border-color: var(--blue);
 
       box-shadow:
         0 0 0 4px
-        rgba(
-          21,
-          93,
-          160,
-          0.12
-        );
-
+        rgba(21, 93, 160, 0.12);
     }
 
 
 
     .select-arrow {
+      position: absolute;
 
-      position:
-        absolute;
+      right: 16px;
 
-      right:
-        16px;
-
-      top:
-        50%;
+      top: 50%;
 
       transform:
         translateY(-50%);
 
-      pointer-events:
-        none;
+      pointer-events: none;
 
-      color:
-        var(--blue);
+      color: var(--blue);
 
-      font-size:
-        15px;
-
+      font-size: 15px;
     }
 
 
@@ -460,117 +335,80 @@
        SCANNER
     ===================================================== */
 
-
     .scanner-box {
-
-      background:
-        #f7fafc;
+      background: #f7fafc;
 
       border:
         1px solid #dce5ee;
 
-      border-radius:
-        16px;
+      border-radius: 16px;
 
-      padding:
-        12px;
-
+      padding: 12px;
     }
 
 
 
     #reader {
+      width: 100%;
 
-      width:
-        100%;
+      overflow: hidden;
 
-      overflow:
-        hidden;
+      border-radius: 12px;
 
-      border-radius:
-        12px;
-
-      background:
-        #ffffff;
-
+      background: #ffffff;
     }
 
 
 
     #reader video {
-
-      border-radius:
-        10px;
-
+      border-radius: 10px;
     }
 
 
 
     #reader button {
+      background: var(--navy);
 
-      background:
-        var(--navy);
+      color: white;
 
-      color:
-        white;
-
-      border:
-        none;
+      border: none;
 
       padding:
         10px 15px;
 
-      border-radius:
-        8px;
+      border-radius: 8px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      margin:
-        4px;
-
+      margin: 4px;
     }
 
 
 
     #reader button:hover {
-
-      background:
-        var(--blue);
-
+      background: var(--blue);
     }
 
 
 
     #reader select {
+      width: auto;
 
-      width:
-        auto;
+      max-width: 100%;
 
-      max-width:
-        100%;
+      padding: 8px;
 
-      padding:
-        8px;
-
-      font-size:
-        13px;
-
+      font-size: 13px;
     }
 
 
 
     #reader a {
+      color: var(--blue);
 
-      color:
-        var(--blue);
-
-      font-weight:
-        600;
-
+      font-weight: 600;
     }
 
 
@@ -579,51 +417,35 @@
        SCAN GUIDE
     ===================================================== */
 
-
     .scan-guide {
+      display: flex;
 
-      display:
-        flex;
+      gap: 10px;
 
-      gap:
-        10px;
+      align-items: flex-start;
 
-      align-items:
-        flex-start;
-
-      margin-top:
-        15px;
+      margin-top: 15px;
 
       padding:
         13px 14px;
 
-      background:
-        #f4f8fc;
+      background: #f4f8fc;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
 
     .scan-icon {
+      flex: 0 0 auto;
 
-      flex:
-        0 0 auto;
-
-      font-size:
-        20px;
-
+      font-size: 20px;
     }
 
 
@@ -632,23 +454,17 @@
        RESULT
     ===================================================== */
 
-
     #result {
+      display: none;
 
-      display:
-        none;
-
-      margin-top:
-        20px;
+      margin-top: 20px;
 
       padding:
         24px 20px;
 
-      border-radius:
-        15px;
+      border-radius: 15px;
 
-      text-align:
-        center;
+      text-align: center;
 
       border:
         1px solid transparent;
@@ -656,7 +472,6 @@
       animation:
         resultAppear
         0.25s ease;
-
     }
 
 
@@ -664,24 +479,17 @@
     @keyframes resultAppear {
 
       from {
-
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
           translateY(8px);
-
       }
 
-
       to {
-
-        opacity:
-          1;
+        opacity: 1;
 
         transform:
           translateY(0);
-
       }
 
     }
@@ -689,105 +497,77 @@
 
 
     .status-title {
+      font-size: 22px;
 
-      font-size:
-        22px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      margin-bottom:
-        12px;
-
+      margin-bottom: 12px;
     }
 
 
 
     #result h2 {
-
       margin:
         9px 0;
 
-      font-size:
-        25px;
+      font-size: 25px;
 
-      color:
-        inherit;
-
+      color: inherit;
     }
 
 
 
     #result p {
-
       margin:
         8px 0;
 
-      line-height:
-        1.55;
-
+      line-height: 1.55;
     }
 
 
 
     .success {
+      background: var(--green-bg);
 
-      background:
-        var(--green-bg);
-
-      color:
-        #17633a;
+      color: #17633a;
 
       border-color:
         #b8e4c9;
-
     }
 
 
 
     .duplicate,
     .cash {
+      background: var(--yellow-bg);
 
-      background:
-        var(--yellow-bg);
-
-      color:
-        #795400;
+      color: #795400;
 
       border-color:
         #f2d482;
-
     }
 
 
 
     .payment,
     .invalid {
+      background: var(--red-bg);
 
-      background:
-        var(--red-bg);
-
-      color:
-        var(--red);
+      color: var(--red);
 
       border-color:
         #efc2bd;
-
     }
 
 
 
     .processing {
+      background: var(--info-bg);
 
-      background:
-        var(--info-bg);
-
-      color:
-        var(--info);
+      color: var(--info);
 
       border-color:
         #bfd8ee;
-
     }
 
 
@@ -796,35 +576,25 @@
        NEXT BUTTON
     ===================================================== */
 
-
     .next-button {
+      width: 100%;
 
-      width:
-        100%;
-
-      margin-top:
-        18px;
+      margin-top: 18px;
 
       padding:
         16px 20px;
 
-      border:
-        none;
+      border: none;
 
-      border-radius:
-        11px;
+      border-radius: 11px;
 
-      font-size:
-        16px;
+      font-size: 16px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      color:
-        white;
+      color: white;
 
       background:
         linear-gradient(
@@ -835,243 +605,166 @@
 
       box-shadow:
         0 8px 18px
-        rgba(
-          11,
-          47,
-          86,
-          0.18
-        );
+        rgba(11, 47, 86, 0.18);
 
       transition:
         all 0.2s ease;
-
     }
 
 
 
     .next-button:hover {
-
       transform:
         translateY(-1px);
 
       box-shadow:
         0 10px 24px
-        rgba(
-          11,
-          47,
-          86,
-          0.25
-        );
-
+        rgba(11, 47, 86, 0.25);
     }
 
 
 
     .next-button:active {
-
       transform:
         translateY(1px);
-
     }
 
 
 
     /* =====================================================
-       SUPPORTING PARTNERS
+       SUPPORTING PARTNERS - SAFE VERSION
     ===================================================== */
 
-
-    .partners-section {
-
-      margin-top:
-        24px;
-
+    .aapbs-partners-section {
+      margin-top: 24px;
     }
 
 
 
-    .partners-card {
+    .aapbs-partners-card {
+      background: #ffffff;
 
-      background:
-        #ffffff;
+      border-radius: 22px;
 
-      border-radius:
-        22px;
-
-      overflow:
-        hidden;
+      overflow: hidden;
 
       box-shadow:
         0 18px 55px
-        rgba(
-          10,
-          31,
-          55,
-          0.12
-        );
-
+        rgba(10, 31, 55, 0.12);
     }
 
 
 
-    .partners-content {
-
-      padding:
-        30px 28px;
-
+    .aapbs-partners-content {
+      padding: 30px 28px;
     }
 
 
 
-    .partners-heading {
+    .aapbs-partners-heading {
+      text-align: center;
 
-      text-align:
-        center;
-
-      margin-bottom:
-        26px;
-
+      margin-bottom: 26px;
     }
 
 
 
-    .partners-label {
+    .aapbs-partners-label {
+      display: inline-block;
 
-      display:
-        inline-block;
+      margin-bottom: 8px;
 
-      margin-bottom:
-        8px;
+      color: #155da0;
 
-      color:
-        #155da0;
+      font-size: 11px;
 
-      font-size:
-        11px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      letter-spacing: 1.5px;
 
-      letter-spacing:
-        1.5px;
-
-      text-transform:
-        uppercase;
-
+      text-transform: uppercase;
     }
 
 
 
-    .partners-heading h3 {
+    .aapbs-partners-heading h3 {
+      margin: 0;
 
-      margin:
-        0;
+      color: #0b2f56;
 
-      color:
-        #0b2f56;
-
-      font-size:
-        24px;
-
+      font-size: 24px;
     }
 
 
 
-    .partners-heading p {
-
+    .aapbs-partners-heading p {
       margin:
         8px 0 0;
 
-      color:
-        #6b7a89;
+      color: #6b7a89;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
 
-    .partners-logo-wall {
+    .aapbs-partners-row {
+      display: grid !important;
 
-      display:
-        flex;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
 
-      align-items:
-        center;
+      gap: 20px !important;
 
-      justify-content:
-        center;
-
-      gap:
-        20px;
-
-      width:
-        100%;
-
+      width: 100% !important;
     }
 
 
 
-    .partner-logo-item {
+    .aapbs-partner-box {
+      width: 100% !important;
 
-      width:
-        260px;
+      height: 170px !important;
 
-      height:
-        170px;
+      min-height: 170px !important;
 
-      flex:
-        0 0 260px;
+      max-height: 170px !important;
 
-      display:
-        flex;
+      display: flex !important;
 
-      align-items:
-        center;
+      align-items: center !important;
 
-      justify-content:
-        center;
+      justify-content: center !important;
 
-      padding:
-        20px;
+      padding: 20px !important;
 
-      background:
-        #050505;
+      margin: 0 !important;
 
-      border-radius:
-        16px;
+      background: #050505 !important;
 
-      overflow:
-        hidden;
+      border-radius: 16px !important;
 
+      overflow: hidden !important;
     }
 
 
 
-    .partner-logo-item img {
+    .aapbs-partner-logo {
+      display: block !important;
 
-      display:
-        block;
+      width: auto !important;
 
-      width:
-        auto !important;
+      height: auto !important;
 
-      height:
-        auto !important;
+      max-width: 90% !important;
 
-      max-width:
-        220px !important;
+      max-height: 120px !important;
 
-      max-height:
-        125px !important;
+      object-fit: contain !important;
 
-      object-fit:
-        contain !important;
-
+      margin: 0 auto !important;
     }
 
 
@@ -1080,33 +773,23 @@
        FOOTER
     ===================================================== */
 
-
     .footer {
-
-      text-align:
-        center;
+      text-align: center;
 
       padding:
         25px 20px;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      color:
-        #758596;
+      color: #758596;
 
-      line-height:
-        1.6;
-
+      line-height: 1.6;
     }
 
 
 
     .footer strong {
-
-      color:
-        var(--navy);
-
+      color: var(--navy);
     }
 
 
@@ -1115,15 +798,12 @@
        MOBILE
     ===================================================== */
 
-
     @media (
       max-width:
       600px
     ) {
 
-
       body {
-
         background:
           linear-gradient(
             180deg,
@@ -1132,130 +812,97 @@
             var(--background) 245px,
             var(--background) 100%
           );
-
       }
 
 
 
       .hero {
-
         padding:
           25px 16px 76px;
-
       }
 
 
 
       .hero h1 {
-
-        font-size:
-          31px;
-
+        font-size: 31px;
       }
 
 
 
       .hero-subtitle {
-
-        font-size:
-          15px;
-
+        font-size: 15px;
       }
 
 
 
       .container {
-
-        margin-top:
-          -48px;
-
+        margin-top: -48px;
       }
 
 
 
       .card-content {
-
         padding:
           20px 16px;
-
       }
 
 
 
       .section-heading h2 {
-
-        font-size:
-          22px;
-
+        font-size: 22px;
       }
 
 
 
       #result {
-
         padding:
           20px 15px;
-
       }
 
 
 
       #result h2 {
-
-        font-size:
-          22px;
-
+        font-size: 22px;
       }
 
 
 
-      .partners-content {
-
+      .aapbs-partners-content {
         padding:
           24px 16px;
-
       }
 
 
 
-      .partners-logo-wall {
-
-        flex-direction:
-          column;
+      .aapbs-partners-row {
+        grid-template-columns:
+          1fr !important;
 
         gap:
-          16px;
-
+          16px !important;
       }
 
 
 
-      .partner-logo-item {
-
-        width:
-          100%;
-
-        max-width:
-          300px;
-
+      .aapbs-partner-box {
         height:
-          155px;
+          150px !important;
 
-        flex:
-          0 0 155px;
-
-      }
-
-
-
-      .partner-logo-item img {
-
-        max-width:
-          210px !important;
+        min-height:
+          150px !important;
 
         max-height:
-          110px !important;
+          150px !important;
+      }
 
+
+
+      .aapbs-partner-logo {
+        max-width:
+          80% !important;
+
+        max-height:
+          105px !important;
       }
 
     }
@@ -1274,16 +921,11 @@
        HEADER
   ====================================================== -->
 
-
   <header class="hero">
 
-
     <div class="event-badge">
-
       AAPBS Annual Meeting 2026
-
     </div>
-
 
 
     <h1>
@@ -1297,7 +939,6 @@
     </h1>
 
 
-
     <div class="hero-subtitle">
 
       Welcome to AAPBS Annual Meeting 2026
@@ -1308,7 +949,6 @@
 
     </div>
 
-
   </header>
 
 
@@ -1317,15 +957,13 @@
        MAIN
   ====================================================== -->
 
-
   <main class="container">
 
 
 
     <!-- =================================================
-         SCANNER CARD
+         SCANNER
     ================================================== -->
-
 
     <div class="card">
 
@@ -1333,29 +971,19 @@
       <div class="card-top-accent"></div>
 
 
-
       <div class="card-content">
-
 
 
         <div class="section-heading">
 
-
           <h2>
-
             QR Attendance Scanner
-
           </h2>
 
-
-
           <p>
-
             Select the scanner location and scan
             the participant QR code.
-
           </p>
-
 
         </div>
 
@@ -1363,18 +991,14 @@
 
         <!-- LOCATION -->
 
-
         <div class="field">
 
 
           <label
             for="scannerLocation"
           >
-
             Scanner Location
-
           </label>
-
 
 
           <div class="select-wrapper">
@@ -1384,91 +1008,65 @@
               id="scannerLocation"
             >
 
-
               <option
                 value="Main Entrance"
               >
-
                 Main Entrance
-
               </option>
-
 
 
               <option
                 value="Registration Desk"
               >
-
                 Registration Desk
-
               </option>
-
 
 
               <option
                 value="Ballroom Entrance"
               >
-
                 Ballroom Entrance
-
               </option>
-
 
 
               <option
                 value="Seminar Room"
               >
-
                 Seminar Room
-
               </option>
-
 
             </select>
 
 
-
             <span class="select-arrow">
-
               ▼
-
             </span>
 
 
           </div>
 
-
         </div>
 
 
 
-        <!-- SCANNER -->
-
+        <!-- QR SCANNER -->
 
         <div class="scanner-box">
 
-
-          <div
-            id="reader"
-          ></div>
-
+          <div id="reader"></div>
 
         </div>
 
 
 
-        <!-- SCAN GUIDE -->
-
+        <!-- GUIDE -->
 
         <div class="scan-guide">
 
 
           <div class="scan-icon">
-
             📷
-
           </div>
-
 
 
           <div>
@@ -1489,15 +1087,10 @@
 
         <!-- RESULT -->
 
-
-        <div
-          id="result"
-        ></div>
-
+        <div id="result"></div>
 
 
       </div>
-
 
     </div>
 
@@ -1507,30 +1100,28 @@
          SUPPORTING PARTNERS
     ================================================== -->
 
+    <section class="aapbs-partners-section">
 
-    <section class="partners-section">
 
-
-      <div class="partners-card">
+      <div class="aapbs-partners-card">
 
 
         <div class="card-top-accent"></div>
 
 
 
-        <div class="partners-content">
+        <div class="aapbs-partners-content">
 
 
 
-          <div class="partners-heading">
+          <div class="aapbs-partners-heading">
 
 
-            <div class="partners-label">
+            <div class="aapbs-partners-label">
 
               With the Support of
 
             </div>
-
 
 
             <h3>
@@ -1538,7 +1129,6 @@
               Supporting Partners
 
             </h3>
-
 
 
             <p>
@@ -1553,17 +1143,17 @@
 
 
 
-          <div class="partners-logo-wall">
+          <div class="aapbs-partners-row">
 
 
 
             <!-- GULAVIT -->
 
-
-            <div class="partner-logo-item">
+            <div class="aapbs-partner-box">
 
 
               <img
+                class="aapbs-partner-logo"
                 src="assets/gulavit.png"
                 alt="GulaVit"
               >
@@ -1575,11 +1165,11 @@
 
             <!-- TAKOKAK WIN'S TEA -->
 
-
-            <div class="partner-logo-item">
+            <div class="aapbs-partner-box">
 
 
               <img
+                class="aapbs-partner-logo"
                 src="assets/takokak-wins-tea.png"
                 alt="Takokak Win's Tea"
               >
@@ -1606,7 +1196,6 @@
          FOOTER
     ================================================== -->
 
-
     <div class="footer">
 
 
@@ -1624,7 +1213,6 @@
 
 
     </div>
-
 
 
   </main>
@@ -1697,9 +1285,7 @@ function jsonpRequest(
 
 
         if (finished) {
-
           return;
-
         }
 
 
@@ -1753,9 +1339,7 @@ function jsonpRequest(
 
 
       if (finished) {
-
         return;
-
       }
 
 
@@ -1834,9 +1418,7 @@ function jsonpRequest(
 
 
       if (finished) {
-
         return;
-
       }
 
 
@@ -2071,9 +1653,7 @@ function onScanSuccess(
     scanLocked
   ) {
 
-
     return;
-
 
   }
 
