@@ -607,146 +607,160 @@
     }
 
 
-   /* =====================================================
-   SUPPORTING PARTNERS - LOGO WALL
-===================================================== */
+    /* =====================================================
+       SUPPORTING PARTNERS - LOGO WALL
+    ===================================================== */
 
-.partners-section {
-  margin-top: 24px;
-}
+    .partners-section {
+      margin-top: 24px;
+    }
 
-.partners-card {
-  background: var(--white);
-  border-radius: 22px;
-  overflow: hidden;
 
-  box-shadow:
-    0 18px 55px
-    rgba(
-      10,
-      31,
-      55,
-      0.12
-    );
-}
+    .partners-card {
+      background: var(--white);
 
-.partners-content {
-  padding: 32px 28px;
-}
+      border-radius: 22px;
 
-.partners-heading {
-  text-align: center;
-  margin-bottom: 28px;
-}
+      overflow: hidden;
 
-.partners-label {
-  display: inline-block;
+      box-shadow:
+        0 18px 55px
+        rgba(
+          10,
+          31,
+          55,
+          0.12
+        );
+    }
 
-  margin-bottom: 8px;
 
-  color: var(--blue);
+    .partners-content {
+      padding: 32px 28px;
+    }
 
-  font-size: 11px;
-  font-weight: 800;
 
-  letter-spacing: 1.5px;
+    .partners-heading {
+      text-align: center;
 
-  text-transform: uppercase;
-}
+      margin-bottom: 28px;
+    }
 
-.partners-heading h3 {
-  margin: 0;
 
-  color: var(--navy);
+    .partners-label {
+      display: inline-block;
 
-  font-size: 24px;
-}
+      margin-bottom: 8px;
 
-.partners-heading p {
-  margin: 8px 0 0;
+      color: var(--blue);
 
-  color: var(--muted);
+      font-size: 11px;
 
-  font-size: 14px;
+      font-weight: 800;
 
-  line-height: 1.5;
-}
+      letter-spacing: 1.5px;
 
-.partners-logo-wall {
-  display: grid;
+      text-transform: uppercase;
+    }
 
-  grid-template-columns:
-    repeat(2, 1fr);
 
-  gap: 28px;
+    .partners-heading h3 {
+      margin: 0;
 
-  align-items: center;
-}
+      color: var(--navy);
 
-.partner-logo-item {
-  min-height: 180px;
+      font-size: 24px;
+    }
 
-  display: flex;
 
-  align-items: center;
+    .partners-heading p {
+      margin:
+        8px 0 0;
 
-  justify-content: center;
+      color: var(--muted);
 
-  padding: 22px;
+      font-size: 14px;
 
-  background: #050505;
+      line-height: 1.5;
+    }
 
-  border-radius: 18px;
 
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
+    .partners-logo-wall {
+      display: grid;
 
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(
-      255,
-      255,
-      255,
-      0.03
-    );
+      grid-template-columns:
+        repeat(2, 1fr);
 
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
+      gap: 28px;
 
-.partner-logo-item:hover {
-  transform:
-    translateY(-2px);
+      align-items: center;
+    }
 
-  box-shadow:
-    0 12px 28px
-    rgba(
-      11,
-      47,
-      86,
-      0.12
-    );
-}
 
-.partner-logo-wall img {
-  display: block;
+    .partner-logo-item {
+      min-height: 180px;
 
-  width: 100%;
+      display: flex;
 
-  max-width: 250px;
+      align-items: center;
 
-  max-height: 135px;
+      justify-content: center;
 
-  object-fit: contain;
-}
+      padding: 22px;
 
+      background: #050505;
+
+      border-radius: 18px;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.06
+        );
+
+      box-shadow:
+        inset 0 0 0 1px
+        rgba(
+          255,
+          255,
+          255,
+          0.03
+        );
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .partner-logo-item:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 28px
+        rgba(
+          11,
+          47,
+          86,
+          0.12
+        );
+    }
+
+
+    .partner-logo-wall img {
+      display: block;
+
+      width: 100%;
+
+      max-width: 250px;
+
+      max-height: 135px;
+
+      object-fit: contain;
+    }
 
 
     /* =====================================================
@@ -773,38 +787,103 @@
 
 
     /* =====================================================
-   MOBILE
-===================================================== */
+       MOBILE
+    ===================================================== */
 
-@media (
-  max-width:
-  600px
-) {
+    @media (
+      max-width:
+      600px
+    ) {
 
-  .partners-content {
-    padding:
-      24px 16px;
-  }
+      body {
+        background:
+          linear-gradient(
+            180deg,
+            var(--navy-dark) 0px,
+            var(--navy) 245px,
+            var(--background) 245px,
+            var(--background) 100%
+          );
+      }
 
-  .partners-logo-wall {
-    grid-template-columns: 1fr;
 
-    gap: 18px;
-  }
+      .hero {
+        padding:
+          25px 16px 76px;
+      }
 
-  .partner-logo-item {
-    min-height: 150px;
 
-    padding: 18px;
-  }
+      .hero h1 {
+        font-size: 31px;
+      }
 
-  .partner-logo-wall img {
-    max-width: 220px;
 
-    max-height: 115px;
-  }
+      .hero-subtitle {
+        font-size: 15px;
+      }
 
-}
+
+      .container {
+        margin-top: -48px;
+      }
+
+
+      .card-content {
+        padding:
+          20px 16px;
+      }
+
+
+      .section-heading h2 {
+        font-size: 22px;
+      }
+
+
+      #result {
+        padding:
+          20px 15px;
+      }
+
+
+      #result h2 {
+        font-size: 22px;
+      }
+
+
+      .partners-content {
+        padding:
+          24px 16px;
+      }
+
+
+      .partners-logo-wall {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+      }
+
+
+      .partner-logo-item {
+        min-height: 150px;
+
+        padding: 18px;
+      }
+
+
+      .partner-logo-wall img {
+        max-width: 220px;
+
+        max-height: 115px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
 
 
   <!-- =====================================================
@@ -955,79 +1034,79 @@
 
 
     <!-- =================================================
-     SUPPORTING PARTNERS
-================================================== -->
+         SUPPORTING PARTNERS
+    ================================================== -->
 
-<section class="partners-section">
+    <section class="partners-section">
 
-  <div class="partners-card">
-
-
-    <div class="card-top-accent"></div>
+      <div class="partners-card">
 
 
-    <div class="partners-content">
+        <div class="card-top-accent"></div>
 
 
-      <div class="partners-heading">
+        <div class="partners-content">
 
-        <div class="partners-label">
-          With the Support of
+
+          <div class="partners-heading">
+
+            <div class="partners-label">
+              With the Support of
+            </div>
+
+
+            <h3>
+              Supporting Partners
+            </h3>
+
+
+            <p>
+              We gratefully acknowledge the support
+              of our valued partners.
+            </p>
+
+          </div>
+
+
+
+          <div class="partners-logo-wall">
+
+
+            <!-- GULAVIT -->
+
+            <div class="partner-logo-item">
+
+              <img
+                src="assets/gulavit.png"
+                alt="GulaVit"
+              >
+
+            </div>
+
+
+
+            <!-- TAKOKAK WIN'S TEA -->
+
+            <div class="partner-logo-item">
+
+              <img
+                src="assets/takokak-wins-tea.png"
+                alt="Takokak Win's Tea"
+              >
+
+            </div>
+
+
+          </div>
+
+
         </div>
-
-
-        <h3>
-          Supporting Partners
-        </h3>
-
-
-        <p>
-          We gratefully acknowledge the support
-          of our valued partners.
-        </p>
 
       </div>
 
+    </section>
 
 
-      <div class="partners-logo-wall">
-
-
-        <!-- GULAVIT -->
-
-        <div class="partner-logo-item">
-
-          <img
-            src="assets/gulavit.png"
-            alt="GulaVit"
-          >
-
-        </div>
-
-
-
-        <!-- TAKOKAK WIN'S TEA -->
-
-        <div class="partner-logo-item">
-
-          <img
-            src="assets/takokak-wins-tea.png"
-            alt="Takokak Win's Tea"
-          >
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-<div class="footer">
 
     <!-- =================================================
          FOOTER
