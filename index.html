@@ -22,15 +22,12 @@
     :root {
 
       --navy: #0b2f56;
-
       --navy-dark: #071f3a;
 
       --blue: #155da0;
-
       --blue-light: #2b78bb;
 
       --gold: #f3b41b;
-
       --gold-soft: #ffd766;
 
       --white: #ffffff;
@@ -38,23 +35,16 @@
       --background: #eef3f8;
 
       --text: #17324d;
-
       --muted: #6b7a89;
 
-      --green: #1f8b4c;
-
       --green-bg: #e8f7ee;
-
-      --yellow: #9a6b00;
 
       --yellow-bg: #fff5d6;
 
       --red: #b42318;
-
       --red-bg: #fdecec;
 
       --info: #155da0;
-
       --info-bg: #e8f2fb;
 
     }
@@ -586,7 +576,7 @@
 
 
     /* =====================================================
-       SCANNER GUIDE
+       SCAN GUIDE
     ===================================================== */
 
 
@@ -887,7 +877,7 @@
 
 
     /* =====================================================
-       SUPPORTING PARTNERS - LOGO WALL
+       SUPPORTING PARTNERS
     ===================================================== */
 
 
@@ -903,7 +893,7 @@
     .partners-card {
 
       background:
-        var(--white);
+        #ffffff;
 
       border-radius:
         22px;
@@ -927,7 +917,7 @@
     .partners-content {
 
       padding:
-        32px 28px;
+        30px 28px;
 
     }
 
@@ -939,7 +929,7 @@
         center;
 
       margin-bottom:
-        28px;
+        26px;
 
     }
 
@@ -954,7 +944,7 @@
         8px;
 
       color:
-        var(--blue);
+        #155da0;
 
       font-size:
         11px;
@@ -978,7 +968,7 @@
         0;
 
       color:
-        var(--navy);
+        #0b2f56;
 
       font-size:
         24px;
@@ -993,7 +983,7 @@
         8px 0 0;
 
       color:
-        var(--muted);
+        #6b7a89;
 
       font-size:
         14px;
@@ -1008,16 +998,19 @@
     .partners-logo-wall {
 
       display:
-        grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap:
-        28px;
+        flex;
 
       align-items:
         center;
+
+      justify-content:
+        center;
+
+      gap:
+        20px;
+
+      width:
+        100%;
 
     }
 
@@ -1025,8 +1018,14 @@
 
     .partner-logo-item {
 
-      min-height:
-        180px;
+      width:
+        260px;
+
+      height:
+        170px;
+
+      flex:
+        0 0 260px;
 
       display:
         flex;
@@ -1038,74 +1037,40 @@
         center;
 
       padding:
-        22px;
+        20px;
 
       background:
         #050505;
 
       border-radius:
-        18px;
+        16px;
 
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.06
-        );
-
-      box-shadow:
-        inset 0 0 0 1px
-        rgba(
-          255,
-          255,
-          255,
-          0.03
-        );
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      overflow:
+        hidden;
 
     }
 
 
 
-    .partner-logo-item:hover {
-
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 12px 28px
-        rgba(
-          11,
-          47,
-          86,
-          0.12
-        );
-
-    }
-
-
-
-    .partner-logo-wall img {
+    .partner-logo-item img {
 
       display:
         block;
 
       width:
-        100%;
+        auto !important;
+
+      height:
+        auto !important;
 
       max-width:
-        250px;
+        220px !important;
 
       max-height:
-        135px;
+        125px !important;
 
       object-fit:
-        contain;
+        contain !important;
 
     }
 
@@ -1255,11 +1220,11 @@
 
       .partners-logo-wall {
 
-        grid-template-columns:
-          1fr;
+        flex-direction:
+          column;
 
         gap:
-          18px;
+          16px;
 
       }
 
@@ -1267,23 +1232,29 @@
 
       .partner-logo-item {
 
-        min-height:
-          150px;
+        width:
+          100%;
 
-        padding:
-          18px;
+        max-width:
+          300px;
+
+        height:
+          155px;
+
+        flex:
+          0 0 155px;
 
       }
 
 
 
-      .partner-logo-wall img {
+      .partner-logo-item img {
 
         max-width:
-          220px;
+          210px !important;
 
         max-height:
-          115px;
+          110px !important;
 
       }
 
@@ -1486,7 +1457,7 @@
 
 
 
-        <!-- SCANNER GUIDE -->
+        <!-- SCAN GUIDE -->
 
 
         <div class="scan-guide">
@@ -1541,7 +1512,6 @@
 
 
       <div class="partners-card">
-
 
 
         <div class="card-top-accent"></div>
