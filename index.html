@@ -607,174 +607,146 @@
     }
 
 
-    /* =====================================================
-       SUPPORTING PARTNERS
-    ===================================================== */
+   /* =====================================================
+   SUPPORTING PARTNERS - LOGO WALL
+===================================================== */
 
-    .partners-section {
-      margin-top: 24px;
-    }
+.partners-section {
+  margin-top: 24px;
+}
 
+.partners-card {
+  background: var(--white);
+  border-radius: 22px;
+  overflow: hidden;
 
-    .partners-card {
-      background: var(--white);
+  box-shadow:
+    0 18px 55px
+    rgba(
+      10,
+      31,
+      55,
+      0.12
+    );
+}
 
-      border-radius: 22px;
+.partners-content {
+  padding: 32px 28px;
+}
 
-      overflow: hidden;
+.partners-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
 
-      box-shadow:
-        0 18px 55px
-        rgba(
-          10,
-          31,
-          55,
-          0.12
-        );
-    }
+.partners-label {
+  display: inline-block;
 
+  margin-bottom: 8px;
 
-    .partners-content {
-      padding: 28px;
-    }
+  color: var(--blue);
 
+  font-size: 11px;
+  font-weight: 800;
 
-    .partners-heading {
-      text-align: center;
+  letter-spacing: 1.5px;
 
-      margin-bottom: 24px;
-    }
+  text-transform: uppercase;
+}
 
+.partners-heading h3 {
+  margin: 0;
 
-    .partners-label {
-      display: inline-block;
+  color: var(--navy);
 
-      margin-bottom: 8px;
+  font-size: 24px;
+}
 
-      color: var(--blue);
+.partners-heading p {
+  margin: 8px 0 0;
 
-      font-size: 11px;
+  color: var(--muted);
 
-      font-weight: 800;
+  font-size: 14px;
 
-      letter-spacing: 1.5px;
+  line-height: 1.5;
+}
 
-      text-transform: uppercase;
-    }
+.partners-logo-wall {
+  display: grid;
 
+  grid-template-columns:
+    repeat(2, 1fr);
 
-    .partners-heading h3 {
-      margin: 0;
+  gap: 28px;
 
-      color: var(--navy);
+  align-items: center;
+}
 
-      font-size: 24px;
-    }
-
-
-    .partners-heading p {
-      margin:
-        8px 0 0;
-
-      color: var(--muted);
-
-      font-size: 14px;
-
-      line-height: 1.5;
-    }
-
-
-    .partners-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 18px;
-    }
-
-
-    .partner-item {
-      background: #f7fafc;
-
-      border:
-        1px solid #dce5ee;
-
-      border-radius: 18px;
-
-      padding: 18px;
-
-      text-align: center;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-
-    .partner-item:hover {
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 10px 24px
-        rgba(
-          11,
-          47,
-          86,
-          0.10
-        );
-    }
-
-
-    .partner-logo-wrap {
-  min-height: 170px;
+.partner-logo-item {
+  min-height: 180px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   padding: 22px;
 
-  background: #ffffff;
+  background: #050505;
 
-  border: 1px solid #e1e8ef;
+  border-radius: 18px;
 
-  border-radius: 14px;
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(
+      255,
+      255,
+      255,
+      0.03
+    );
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.partner-logo-item:hover {
+  transform:
+    translateY(-2px);
 
-    .partner-logo {
+  box-shadow:
+    0 12px 28px
+    rgba(
+      11,
+      47,
+      86,
+      0.12
+    );
+}
+
+.partner-logo-wall img {
   display: block;
 
   width: 100%;
 
-  max-width: 240px;
+  max-width: 250px;
 
   max-height: 135px;
 
   object-fit: contain;
 }
 
-
-    .partner-name {
-      margin-top: 14px;
-
-      color: var(--navy);
-
-      font-size: 15px;
-
-      font-weight: 800;
-    }
-
-
-    .partner-role {
-      margin-top: 4px;
-
-      color: var(--muted);
-
-      font-size: 12px;
-    }
 
 
     /* =====================================================
@@ -801,97 +773,38 @@
 
 
     /* =====================================================
-       MOBILE
-    ===================================================== */
+   MOBILE
+===================================================== */
 
-    @media (
-      max-width:
-      600px
-    ) {
+@media (
+  max-width:
+  600px
+) {
 
-      body {
-        background:
-          linear-gradient(
-            180deg,
-            var(--navy-dark) 0px,
-            var(--navy) 245px,
-            var(--background) 245px,
-            var(--background) 100%
-          );
-      }
+  .partners-content {
+    padding:
+      24px 16px;
+  }
 
+  .partners-logo-wall {
+    grid-template-columns: 1fr;
 
-      .hero {
-        padding:
-          25px 16px 76px;
-      }
+    gap: 18px;
+  }
 
+  .partner-logo-item {
+    min-height: 150px;
 
-      .hero h1 {
-        font-size: 31px;
-      }
+    padding: 18px;
+  }
 
+  .partner-logo-wall img {
+    max-width: 220px;
 
-      .hero-subtitle {
-        font-size: 15px;
-      }
+    max-height: 115px;
+  }
 
-
-      .container {
-        margin-top: -48px;
-      }
-
-
-      .card-content {
-        padding:
-          20px 16px;
-      }
-
-
-      .section-heading h2 {
-        font-size: 22px;
-      }
-
-
-      #result {
-        padding:
-          20px 15px;
-      }
-
-
-      #result h2 {
-        font-size: 22px;
-      }
-
-
-      .partners-content {
-        padding:
-          22px 16px;
-      }
-
-
-      .partners-grid {
-        grid-template-columns: 1fr;
-      }
-
-
-      .partner-logo-wrap {
-        min-height: 145px;
-      }
-
-
-      .partner-logo {
-        max-height: 120px;
-      }
-
-    }
-
-  </style>
-
-</head>
-
-
-<body>
+}
 
 
   <!-- =====================================================
@@ -1042,109 +955,79 @@
 
 
     <!-- =================================================
-         SUPPORTING PARTNERS
-    ================================================== -->
+     SUPPORTING PARTNERS
+================================================== -->
 
-    <section class="partners-section">
+<section class="partners-section">
 
-      <div class="partners-card">
-
-
-        <div class="card-top-accent"></div>
+  <div class="partners-card">
 
 
-        <div class="partners-content">
+    <div class="card-top-accent"></div>
 
 
-          <div class="partners-heading">
-
-            <div class="partners-label">
-              With the Support of
-            </div>
+    <div class="partners-content">
 
 
-            <h3>
-              Supporting Partners
-            </h3>
+      <div class="partners-heading">
 
-
-            <p>
-              We gratefully acknowledge the support
-              of our valued partners.
-            </p>
-
-          </div>
-
-
-
-          <div class="partners-grid">
-
-
-            <!-- GULAVIT -->
-
-            <div class="partner-item">
-
-              <div class="partner-logo-wrap">
-
-                <img
-                  src="assets/gulavit.png"
-                  alt="GulaVit"
-                  class="partner-logo"
-                >
-
-              </div>
-
-
-              <div class="partner-name">
-                GulaVit
-              </div>
-
-
-              <div class="partner-role">
-                Supporting Partner
-              </div>
-
-            </div>
-
-
-
-            <!-- TAKOKAK -->
-
-            <div class="partner-item">
-
-              <div class="partner-logo-wrap">
-
-                <img
-                  src="assets/takokak-wins-tea.png"
-                  alt="Takokak Win's Tea"
-                  class="partner-logo"
-                >
-
-              </div>
-
-
-              <div class="partner-name">
-                Takokak Win's Tea
-              </div>
-
-
-              <div class="partner-role">
-                Supporting Partner
-              </div>
-
-            </div>
-
-
-          </div>
-
-
+        <div class="partners-label">
+          With the Support of
         </div>
+
+
+        <h3>
+          Supporting Partners
+        </h3>
+
+
+        <p>
+          We gratefully acknowledge the support
+          of our valued partners.
+        </p>
 
       </div>
 
-    </section>
 
 
+      <div class="partners-logo-wall">
+
+
+        <!-- GULAVIT -->
+
+        <div class="partner-logo-item">
+
+          <img
+            src="assets/gulavit.png"
+            alt="GulaVit"
+          >
+
+        </div>
+
+
+
+        <!-- TAKOKAK WIN'S TEA -->
+
+        <div class="partner-logo-item">
+
+          <img
+            src="assets/takokak-wins-tea.png"
+            alt="Takokak Win's Tea"
+          >
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+<div class="footer">
 
     <!-- =================================================
          FOOTER
