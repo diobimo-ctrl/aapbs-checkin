@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -10,9 +11,7 @@
 
   <title>AAPBS 2026 Check-in</title>
 
-  <script
-    src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js">
-  </script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 
   <style>
 
@@ -21,6 +20,7 @@
       --navy-dark: #071f3a;
       --blue: #155da0;
       --blue-light: #2b78bb;
+
       --gold: #f3b41b;
       --gold-soft: #ffd766;
 
@@ -30,10 +30,8 @@
       --text: #17324d;
       --muted: #6b7a89;
 
-      --green: #1f8b4c;
       --green-bg: #e8f7ee;
 
-      --yellow: #9a6b00;
       --yellow-bg: #fff5d6;
 
       --red: #b42318;
@@ -50,9 +48,7 @@
 
 
     body {
-
       margin: 0;
-
       min-height: 100vh;
 
       font-family:
@@ -69,87 +65,55 @@
           var(--background) 100%
         );
 
-      color:
-        var(--text);
-
+      color: var(--text);
     }
 
 
-    /*
-    ========================================
-    HEADER
-    ========================================
-    */
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     .hero {
-
       max-width: 780px;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
 
       padding:
         34px 20px 90px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      color:
-        var(--white);
-
+      color: var(--white);
     }
 
 
     .event-badge {
-
-      display:
-        inline-block;
+      display: inline-block;
 
       padding:
         8px 16px;
 
       border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.35
-        );
+        1px solid rgba(255,255,255,0.35);
 
-      border-radius:
-        50px;
+      border-radius: 50px;
 
       background:
-        rgba(
-          255,
-          255,
-          255,
-          0.08
-        );
+        rgba(255,255,255,0.08);
 
-      font-size:
-        12px;
+      font-size: 12px;
+      font-weight: 700;
 
-      font-weight:
-        700;
+      letter-spacing: 1.4px;
 
-      letter-spacing:
-        1.4px;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      margin-bottom:
-        18px;
-
+      margin-bottom: 18px;
     }
 
 
     .hero h1 {
-
-      margin:
-        0;
+      margin: 0;
 
       font-size:
         clamp(
@@ -158,48 +122,33 @@
           46px
         );
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      line-height:
-        1.08;
-
+      line-height: 1.08;
     }
 
 
     .hero h1 span {
-
-      color:
-        var(--gold-soft);
-
+      color: var(--gold-soft);
     }
 
 
     .hero-subtitle {
+      margin-top: 12px;
 
-      margin-top:
-        12px;
+      font-size: 18px;
 
-      font-size:
-        18px;
+      opacity: 0.92;
 
-      opacity:
-        0.92;
-
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
-    /*
-    ========================================
-    MAIN
-    ========================================
-    */
+    /* =====================================================
+       MAIN
+    ===================================================== */
 
     .container {
-
       width:
         min(
           94%,
@@ -208,20 +157,15 @@
 
       margin:
         -58px auto 40px;
-
     }
 
 
     .card {
+      background: var(--white);
 
-      background:
-        var(--white);
+      border-radius: 22px;
 
-      border-radius:
-        22px;
-
-      overflow:
-        hidden;
+      overflow: hidden;
 
       box-shadow:
         0 18px 55px
@@ -231,14 +175,11 @@
           55,
           0.18
         );
-
     }
 
 
     .card-top-accent {
-
-      height:
-        6px;
+      height: 6px;
 
       background:
         linear-gradient(
@@ -247,115 +188,76 @@
           #f8cc49,
           var(--gold)
         );
-
     }
 
 
     .card-content {
-
-      padding:
-        28px;
-
+      padding: 28px;
     }
 
 
     .section-heading {
+      text-align: center;
 
-      text-align:
-        center;
-
-      margin-bottom:
-        26px;
-
+      margin-bottom: 26px;
     }
 
 
     .section-heading h2 {
+      margin: 0;
 
-      margin:
-        0;
+      color: var(--navy);
 
-      color:
-        var(--navy);
-
-      font-size:
-        26px;
-
+      font-size: 26px;
     }
 
 
     .section-heading p {
+      margin: 8px 0 0;
 
-      margin:
-        8px 0 0;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      font-size: 14px;
 
-      font-size:
-        14px;
-
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
-    /*
-    ========================================
-    LOCATION
-    ========================================
-    */
+    /* =====================================================
+       LOCATION
+    ===================================================== */
 
     .field {
-
-      margin-bottom:
-        22px;
-
+      margin-bottom: 22px;
     }
 
 
     .field label {
+      display: block;
 
-      display:
-        block;
+      font-size: 13px;
 
-      font-size:
-        13px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      color: var(--navy);
 
-      color:
-        var(--navy);
+      margin-bottom: 9px;
 
-      margin-bottom:
-        9px;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        0.7px;
-
+      letter-spacing: 0.7px;
     }
 
 
     .select-wrapper {
-
-      position:
-        relative;
-
+      position: relative;
     }
 
 
     select {
+      width: 100%;
 
-      width:
-        100%;
-
-      appearance:
-        none;
+      appearance: none;
 
       padding:
         15px 48px 15px 16px;
@@ -363,34 +265,25 @@
       border:
         1px solid #cad6e2;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      font-size:
-        16px;
+      font-size: 16px;
 
-      font-weight:
-        600;
+      font-weight: 600;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      background:
-        var(--white);
+      background: var(--white);
 
-      outline:
-        none;
+      outline: none;
 
       transition:
         all 0.2s ease;
-
     }
 
 
     select:focus {
-
-      border-color:
-        var(--blue);
+      border-color: var(--blue);
 
       box-shadow:
         0 0 0 4px
@@ -400,172 +293,115 @@
           160,
           0.12
         );
-
     }
 
 
     .select-arrow {
+      position: absolute;
 
-      position:
-        absolute;
+      right: 16px;
 
-      right:
-        16px;
-
-      top:
-        50%;
+      top: 50%;
 
       transform:
         translateY(-50%);
 
-      pointer-events:
-        none;
+      pointer-events: none;
 
-      color:
-        var(--blue);
+      color: var(--blue);
 
-      font-size:
-        15px;
-
+      font-size: 15px;
     }
 
 
-    /*
-    ========================================
-    SCANNER
-    ========================================
-    */
+    /* =====================================================
+       SCANNER
+    ===================================================== */
 
     .scanner-box {
-
-      background:
-        #f7fafc;
+      background: #f7fafc;
 
       border:
         1px solid #dce5ee;
 
-      border-radius:
-        16px;
+      border-radius: 16px;
 
-      padding:
-        12px;
-
+      padding: 12px;
     }
 
 
     #reader {
+      width: 100%;
 
-      width:
-        100%;
+      overflow: hidden;
 
-      overflow:
-        hidden;
+      border-radius: 12px;
 
-      border-radius:
-        12px;
-
-      background:
-        #ffffff;
-
+      background: #ffffff;
     }
 
 
     #reader video {
-
-      border-radius:
-        10px;
-
+      border-radius: 10px;
     }
 
 
-    /*
-    html5-qrcode buttons
-    */
-
     #reader button {
+      background: var(--navy);
 
-      background:
-        var(--navy);
+      color: white;
 
-      color:
-        white;
-
-      border:
-        none;
+      border: none;
 
       padding:
         10px 15px;
 
-      border-radius:
-        8px;
+      border-radius: 8px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      margin:
-        4px;
-
+      margin: 4px;
     }
 
 
     #reader button:hover {
-
-      background:
-        var(--blue);
-
+      background: var(--blue);
     }
 
 
     #reader select {
+      width: auto;
 
-      width:
-        auto;
+      max-width: 100%;
 
-      max-width:
-        100%;
+      padding: 8px;
 
-      padding:
-        8px;
-
-      font-size:
-        13px;
-
+      font-size: 13px;
     }
 
 
     #reader a {
+      color: var(--blue);
 
-      color:
-        var(--blue);
-
-      font-weight:
-        600;
-
+      font-weight: 600;
     }
 
 
-    /*
-    ========================================
-    SCANNER GUIDE
-    ========================================
-    */
+    /* =====================================================
+       SCAN GUIDE
+    ===================================================== */
 
     .scan-guide {
+      display: flex;
 
-      display:
-        flex;
-
-      gap:
-        10px;
+      gap: 10px;
 
       align-items:
         flex-start;
 
-      margin-top:
-        15px;
+      margin-top: 15px;
 
       padding:
         13px 14px;
@@ -573,54 +409,39 @@
       background:
         #f4f8fc;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      line-height:
-        1.5;
-
+      line-height: 1.5;
     }
 
 
     .scan-icon {
-
       flex:
         0 0 auto;
 
-      font-size:
-        20px;
-
+      font-size: 20px;
     }
 
 
-    /*
-    ========================================
-    RESULT
-    ========================================
-    */
+    /* =====================================================
+       RESULT
+    ===================================================== */
 
     #result {
+      display: none;
 
-      display:
-        none;
-
-      margin-top:
-        20px;
+      margin-top: 20px;
 
       padding:
         24px 20px;
 
-      border-radius:
-        15px;
+      border-radius: 15px;
 
-      text-align:
-        center;
+      text-align: center;
 
       border:
         1px solid transparent;
@@ -628,23 +449,21 @@
       animation:
         resultAppear
         0.25s ease;
-
     }
 
 
     @keyframes resultAppear {
 
       from {
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
           translateY(8px);
       }
 
+
       to {
-        opacity:
-          1;
+        opacity: 1;
 
         transform:
           translateY(0);
@@ -654,149 +473,97 @@
 
 
     .status-title {
+      font-size: 22px;
 
-      font-size:
-        22px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      margin-bottom:
-        12px;
-
+      margin-bottom: 12px;
     }
 
 
     #result h2 {
-
       margin:
         9px 0;
 
-      font-size:
-        25px;
+      font-size: 25px;
 
-      color:
-        inherit;
-
+      color: inherit;
     }
 
 
     #result p {
-
       margin:
         8px 0;
 
-      line-height:
-        1.55;
-
+      line-height: 1.55;
     }
 
 
     .success {
+      background: var(--green-bg);
 
-      background:
-        var(--green-bg);
-
-      color:
-        #17633a;
+      color: #17633a;
 
       border-color:
         #b8e4c9;
-
     }
 
 
-    .duplicate {
-
-      background:
-        var(--yellow-bg);
-
-      color:
-        #795400;
-
-      border-color:
-        #f2d482;
-
-    }
-
-
+    .duplicate,
     .cash {
+      background: var(--yellow-bg);
 
-      background:
-        var(--yellow-bg);
-
-      color:
-        #795400;
+      color: #795400;
 
       border-color:
         #f2d482;
-
     }
 
 
     .payment,
     .invalid {
+      background: var(--red-bg);
 
-      background:
-        var(--red-bg);
-
-      color:
-        var(--red);
+      color: var(--red);
 
       border-color:
         #efc2bd;
-
     }
 
 
     .processing {
+      background: var(--info-bg);
 
-      background:
-        var(--info-bg);
-
-      color:
-        var(--info);
+      color: var(--info);
 
       border-color:
         #bfd8ee;
-
     }
 
 
-    /*
-    ========================================
-    NEXT BUTTON
-    ========================================
-    */
+    /* =====================================================
+       NEXT BUTTON
+    ===================================================== */
 
     .next-button {
+      width: 100%;
 
-      width:
-        100%;
-
-      margin-top:
-        18px;
+      margin-top: 18px;
 
       padding:
         16px 20px;
 
-      border:
-        none;
+      border: none;
 
-      border-radius:
-        11px;
+      border-radius: 11px;
 
-      font-size:
-        16px;
+      font-size: 16px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
-      color:
-        white;
+      color: white;
 
       background:
         linear-gradient(
@@ -816,12 +583,10 @@
 
       transition:
         all 0.2s ease;
-
     }
 
 
     .next-button:hover {
-
       transform:
         translateY(-1px);
 
@@ -833,57 +598,211 @@
           86,
           0.25
         );
-
     }
 
 
     .next-button:active {
-
       transform:
         translateY(1px);
-
     }
 
 
-    /*
-    ========================================
-    FOOTER
-    ========================================
-    */
+    /* =====================================================
+       SUPPORTING PARTNERS
+    ===================================================== */
+
+    .partners-section {
+      margin-top: 24px;
+    }
+
+
+    .partners-card {
+      background: var(--white);
+
+      border-radius: 22px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 18px 55px
+        rgba(
+          10,
+          31,
+          55,
+          0.12
+        );
+    }
+
+
+    .partners-content {
+      padding: 28px;
+    }
+
+
+    .partners-heading {
+      text-align: center;
+
+      margin-bottom: 24px;
+    }
+
+
+    .partners-label {
+      display: inline-block;
+
+      margin-bottom: 8px;
+
+      color: var(--blue);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+
+    .partners-heading h3 {
+      margin: 0;
+
+      color: var(--navy);
+
+      font-size: 24px;
+    }
+
+
+    .partners-heading p {
+      margin:
+        8px 0 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.5;
+    }
+
+
+    .partners-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+
+    .partner-item {
+      background: #f7fafc;
+
+      border:
+        1px solid #dce5ee;
+
+      border-radius: 18px;
+
+      padding: 18px;
+
+      text-align: center;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .partner-item:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 10px 24px
+        rgba(
+          11,
+          47,
+          86,
+          0.10
+        );
+    }
+
+
+    .partner-logo-wrap {
+      min-height: 170px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 18px;
+
+      background: #050505;
+
+      border-radius: 14px;
+    }
+
+
+    .partner-logo {
+      display: block;
+
+      width: 100%;
+
+      max-width: 240px;
+
+      max-height: 140px;
+
+      object-fit: contain;
+    }
+
+
+    .partner-name {
+      margin-top: 14px;
+
+      color: var(--navy);
+
+      font-size: 15px;
+
+      font-weight: 800;
+    }
+
+
+    .partner-role {
+      margin-top: 4px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
     .footer {
-
-      text-align:
-        center;
+      text-align: center;
 
       padding:
         25px 20px;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      color:
-        #758596;
+      color: #758596;
 
-      line-height:
-        1.6;
-
+      line-height: 1.6;
     }
 
 
     .footer strong {
-
-      color:
-        var(--navy);
-
+      color: var(--navy);
     }
 
 
-    /*
-    ========================================
-    MOBILE
-    ========================================
-    */
+    /* =====================================================
+       MOBILE
+    ===================================================== */
 
     @media (
       max-width:
@@ -891,7 +810,6 @@
     ) {
 
       body {
-
         background:
           linear-gradient(
             180deg,
@@ -900,71 +818,70 @@
             var(--background) 245px,
             var(--background) 100%
           );
-
       }
 
 
       .hero {
-
         padding:
           25px 16px 76px;
-
       }
 
 
       .hero h1 {
-
-        font-size:
-          31px;
-
+        font-size: 31px;
       }
 
 
       .hero-subtitle {
-
-        font-size:
-          15px;
-
+        font-size: 15px;
       }
 
 
       .container {
-
-        margin-top:
-          -48px;
-
+        margin-top: -48px;
       }
 
 
       .card-content {
-
         padding:
           20px 16px;
-
       }
 
 
       .section-heading h2 {
-
-        font-size:
-          22px;
-
+        font-size: 22px;
       }
 
 
       #result {
-
         padding:
           20px 15px;
-
       }
 
 
       #result h2 {
+        font-size: 22px;
+      }
 
-        font-size:
-          22px;
 
+      .partners-content {
+        padding:
+          22px 16px;
+      }
+
+
+      .partners-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .partner-logo-wrap {
+        min-height: 145px;
+      }
+
+
+      .partner-logo {
+        max-height: 120px;
       }
 
     }
@@ -977,9 +894,9 @@
 <body>
 
 
-  <!-- ======================================
+  <!-- =====================================================
        HEADER
-       ====================================== -->
+  ====================================================== -->
 
   <header class="hero">
 
@@ -987,10 +904,12 @@
       AAPBS Annual Meeting 2026
     </div>
 
+
     <h1>
       Participant
       <span>Check-in</span>
     </h1>
+
 
     <div class="hero-subtitle">
       Welcome to AAPBS Annual Meeting 2026
@@ -1002,11 +921,16 @@
 
 
 
-  <!-- ======================================
+  <!-- =====================================================
        MAIN
-       ====================================== -->
+  ====================================================== -->
 
   <main class="container">
+
+
+    <!-- =================================================
+         SCANNER CARD
+    ================================================== -->
 
     <div class="card">
 
@@ -1035,43 +959,28 @@
 
         <div class="field">
 
-          <label
-            for="scannerLocation"
-          >
+          <label for="scannerLocation">
             Scanner Location
           </label>
 
 
           <div class="select-wrapper">
 
-            <select
-              id="scannerLocation"
-            >
+            <select id="scannerLocation">
 
-              <option
-                value="Main Entrance"
-              >
+              <option value="Main Entrance">
                 Main Entrance
               </option>
 
-
-              <option
-                value="Registration Desk"
-              >
+              <option value="Registration Desk">
                 Registration Desk
               </option>
 
-
-              <option
-                value="Ballroom Entrance"
-              >
+              <option value="Ballroom Entrance">
                 Ballroom Entrance
               </option>
 
-
-              <option
-                value="Seminar Room"
-              >
+              <option value="Seminar Room">
                 Seminar Room
               </option>
 
@@ -1097,6 +1006,8 @@
         </div>
 
 
+
+        <!-- SCAN GUIDE -->
 
         <div class="scan-guide">
 
@@ -1130,6 +1041,115 @@
 
 
 
+    <!-- =================================================
+         SUPPORTING PARTNERS
+    ================================================== -->
+
+    <section class="partners-section">
+
+      <div class="partners-card">
+
+
+        <div class="card-top-accent"></div>
+
+
+        <div class="partners-content">
+
+
+          <div class="partners-heading">
+
+            <div class="partners-label">
+              With the Support of
+            </div>
+
+
+            <h3>
+              Supporting Partners
+            </h3>
+
+
+            <p>
+              We gratefully acknowledge the support
+              of our valued partners.
+            </p>
+
+          </div>
+
+
+
+          <div class="partners-grid">
+
+
+            <!-- GULAVIT -->
+
+            <div class="partner-item">
+
+              <div class="partner-logo-wrap">
+
+                <img
+                  src="assets/gulavit.png"
+                  alt="GulaVit"
+                  class="partner-logo"
+                >
+
+              </div>
+
+
+              <div class="partner-name">
+                GulaVit
+              </div>
+
+
+              <div class="partner-role">
+                Supporting Partner
+              </div>
+
+            </div>
+
+
+
+            <!-- TAKOKAK -->
+
+            <div class="partner-item">
+
+              <div class="partner-logo-wrap">
+
+                <img
+                  src="assets/takokak-wins-tea.png"
+                  alt="Takokak Win's Tea"
+                  class="partner-logo"
+                >
+
+              </div>
+
+
+              <div class="partner-name">
+                Takokak Win's Tea
+              </div>
+
+
+              <div class="partner-role">
+                Supporting Partner
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
     <div class="footer">
 
       <strong>
@@ -1141,6 +1161,7 @@
       Hosted by Universitas Terbuka
 
     </div>
+
 
   </main>
 
@@ -2041,11 +2062,6 @@ function resetScanner() {
 
 
 
-  /*
-  Scroll back to scanner
-  */
-
-
   document
     .getElementById(
       "reader"
@@ -2117,4 +2133,5 @@ scanner.render(
 
 
 </body>
+
 </html>
