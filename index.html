@@ -1,198 +1,1182 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>AAPBS 2026 Check-in</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <title>AAPBS 2026 Check-in</title>
 
-<style>
-body {
-  margin: 0;
-  background: #f3f5f7;
-  font-family: Arial, sans-serif;
-  color: #1f2937;
-}
+  <script
+    src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js">
+  </script>
 
-.container {
-  max-width: 650px;
-  margin: 24px auto;
-  padding: 16px;
-}
+  <style>
 
-.card {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 18px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.10);
-}
+    :root {
+      --navy: #0b2f56;
+      --navy-dark: #071f3a;
+      --blue: #155da0;
+      --blue-light: #2b78bb;
+      --gold: #f3b41b;
+      --gold-soft: #ffd766;
 
-h1 {
-  text-align: center;
-  margin: 0 0 6px;
-  font-size: 28px;
-}
+      --white: #ffffff;
+      --background: #eef3f8;
 
-.subtitle {
-  text-align: center;
-  color: #6b7280;
-  font-size: 18px;
-  margin-bottom: 22px;
-}
+      --text: #17324d;
+      --muted: #6b7a89;
 
-label {
-  font-weight: 700;
-}
+      --green: #1f8b4c;
+      --green-bg: #e8f7ee;
 
-select {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 13px;
-  margin: 9px 0 18px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  font-size: 16px;
-}
+      --yellow: #9a6b00;
+      --yellow-bg: #fff5d6;
 
-#reader {
-  width: 100%;
-}
+      --red: #b42318;
+      --red-bg: #fdecec;
 
-#result {
-  display: none;
-  margin-top: 18px;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-}
+      --info: #155da0;
+      --info-bg: #e8f2fb;
+    }
 
-.success {
-  background: #d4edda;
-  color: #155724;
-}
 
-.duplicate {
-  background: #fff3cd;
-  color: #856404;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.payment {
-  background: #f8d7da;
-  color: #721c24;
-}
 
-.cash {
-  background: #fff3cd;
-  color: #856404;
-}
+    body {
 
-.invalid {
-  background: #f8d7da;
-  color: #721c24;
-}
+      margin: 0;
 
-.processing {
-  background: #d9edf7;
-  color: #0c5460;
-}
+      min-height: 100vh;
 
-.hint {
-  font-size: 13px;
-  color: #6b7280;
-  text-align: center;
-  margin-top: 14px;
-}
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-.status-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
+      background:
+        linear-gradient(
+          180deg,
+          var(--navy-dark) 0px,
+          var(--navy) 280px,
+          var(--background) 280px,
+          var(--background) 100%
+        );
 
-.next-button {
-  margin-top: 20px;
-  padding: 15px 20px;
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  background: #1f4e78;
-  color: #ffffff;
-}
+      color:
+        var(--text);
 
-.next-button:hover {
-  opacity: 0.92;
-}
-</style>
+    }
+
+
+    /*
+    ========================================
+    HEADER
+    ========================================
+    */
+
+    .hero {
+
+      max-width: 780px;
+
+      margin:
+        0 auto;
+
+      padding:
+        34px 20px 90px;
+
+      text-align:
+        center;
+
+      color:
+        var(--white);
+
+    }
+
+
+    .event-badge {
+
+      display:
+        inline-block;
+
+      padding:
+        8px 16px;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.35
+        );
+
+      border-radius:
+        50px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.08
+        );
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        1.4px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        18px;
+
+    }
+
+
+    .hero h1 {
+
+      margin:
+        0;
+
+      font-size:
+        clamp(
+          30px,
+          6vw,
+          46px
+        );
+
+      font-weight:
+        800;
+
+      line-height:
+        1.08;
+
+    }
+
+
+    .hero h1 span {
+
+      color:
+        var(--gold-soft);
+
+    }
+
+
+    .hero-subtitle {
+
+      margin-top:
+        12px;
+
+      font-size:
+        18px;
+
+      opacity:
+        0.92;
+
+      line-height:
+        1.5;
+
+    }
+
+
+    /*
+    ========================================
+    MAIN
+    ========================================
+    */
+
+    .container {
+
+      width:
+        min(
+          94%,
+          680px
+        );
+
+      margin:
+        -58px auto 40px;
+
+    }
+
+
+    .card {
+
+      background:
+        var(--white);
+
+      border-radius:
+        22px;
+
+      overflow:
+        hidden;
+
+      box-shadow:
+        0 18px 55px
+        rgba(
+          10,
+          31,
+          55,
+          0.18
+        );
+
+    }
+
+
+    .card-top-accent {
+
+      height:
+        6px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--gold),
+          #f8cc49,
+          var(--gold)
+        );
+
+    }
+
+
+    .card-content {
+
+      padding:
+        28px;
+
+    }
+
+
+    .section-heading {
+
+      text-align:
+        center;
+
+      margin-bottom:
+        26px;
+
+    }
+
+
+    .section-heading h2 {
+
+      margin:
+        0;
+
+      color:
+        var(--navy);
+
+      font-size:
+        26px;
+
+    }
+
+
+    .section-heading p {
+
+      margin:
+        8px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.5;
+
+    }
+
+
+    /*
+    ========================================
+    LOCATION
+    ========================================
+    */
+
+    .field {
+
+      margin-bottom:
+        22px;
+
+    }
+
+
+    .field label {
+
+      display:
+        block;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+      color:
+        var(--navy);
+
+      margin-bottom:
+        9px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.7px;
+
+    }
+
+
+    .select-wrapper {
+
+      position:
+        relative;
+
+    }
+
+
+    select {
+
+      width:
+        100%;
+
+      appearance:
+        none;
+
+      padding:
+        15px 48px 15px 16px;
+
+      border:
+        1px solid #cad6e2;
+
+      border-radius:
+        12px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        600;
+
+      color:
+        var(--navy);
+
+      background:
+        var(--white);
+
+      outline:
+        none;
+
+      transition:
+        all 0.2s ease;
+
+    }
+
+
+    select:focus {
+
+      border-color:
+        var(--blue);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(
+          21,
+          93,
+          160,
+          0.12
+        );
+
+    }
+
+
+    .select-arrow {
+
+      position:
+        absolute;
+
+      right:
+        16px;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      pointer-events:
+        none;
+
+      color:
+        var(--blue);
+
+      font-size:
+        15px;
+
+    }
+
+
+    /*
+    ========================================
+    SCANNER
+    ========================================
+    */
+
+    .scanner-box {
+
+      background:
+        #f7fafc;
+
+      border:
+        1px solid #dce5ee;
+
+      border-radius:
+        16px;
+
+      padding:
+        12px;
+
+    }
+
+
+    #reader {
+
+      width:
+        100%;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        12px;
+
+      background:
+        #ffffff;
+
+    }
+
+
+    #reader video {
+
+      border-radius:
+        10px;
+
+    }
+
+
+    /*
+    html5-qrcode buttons
+    */
+
+    #reader button {
+
+      background:
+        var(--navy);
+
+      color:
+        white;
+
+      border:
+        none;
+
+      padding:
+        10px 15px;
+
+      border-radius:
+        8px;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      margin:
+        4px;
+
+    }
+
+
+    #reader button:hover {
+
+      background:
+        var(--blue);
+
+    }
+
+
+    #reader select {
+
+      width:
+        auto;
+
+      max-width:
+        100%;
+
+      padding:
+        8px;
+
+      font-size:
+        13px;
+
+    }
+
+
+    #reader a {
+
+      color:
+        var(--blue);
+
+      font-weight:
+        600;
+
+    }
+
+
+    /*
+    ========================================
+    SCANNER GUIDE
+    ========================================
+    */
+
+    .scan-guide {
+
+      display:
+        flex;
+
+      gap:
+        10px;
+
+      align-items:
+        flex-start;
+
+      margin-top:
+        15px;
+
+      padding:
+        13px 14px;
+
+      background:
+        #f4f8fc;
+
+      border-radius:
+        10px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.5;
+
+    }
+
+
+    .scan-icon {
+
+      flex:
+        0 0 auto;
+
+      font-size:
+        20px;
+
+    }
+
+
+    /*
+    ========================================
+    RESULT
+    ========================================
+    */
+
+    #result {
+
+      display:
+        none;
+
+      margin-top:
+        20px;
+
+      padding:
+        24px 20px;
+
+      border-radius:
+        15px;
+
+      text-align:
+        center;
+
+      border:
+        1px solid transparent;
+
+      animation:
+        resultAppear
+        0.25s ease;
+
+    }
+
+
+    @keyframes resultAppear {
+
+      from {
+        opacity:
+          0;
+
+        transform:
+          translateY(8px);
+      }
+
+      to {
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
+      }
+
+    }
+
+
+    .status-title {
+
+      font-size:
+        22px;
+
+      font-weight:
+        800;
+
+      margin-bottom:
+        12px;
+
+    }
+
+
+    #result h2 {
+
+      margin:
+        9px 0;
+
+      font-size:
+        25px;
+
+      color:
+        inherit;
+
+    }
+
+
+    #result p {
+
+      margin:
+        8px 0;
+
+      line-height:
+        1.55;
+
+    }
+
+
+    .success {
+
+      background:
+        var(--green-bg);
+
+      color:
+        #17633a;
+
+      border-color:
+        #b8e4c9;
+
+    }
+
+
+    .duplicate {
+
+      background:
+        var(--yellow-bg);
+
+      color:
+        #795400;
+
+      border-color:
+        #f2d482;
+
+    }
+
+
+    .cash {
+
+      background:
+        var(--yellow-bg);
+
+      color:
+        #795400;
+
+      border-color:
+        #f2d482;
+
+    }
+
+
+    .payment,
+    .invalid {
+
+      background:
+        var(--red-bg);
+
+      color:
+        var(--red);
+
+      border-color:
+        #efc2bd;
+
+    }
+
+
+    .processing {
+
+      background:
+        var(--info-bg);
+
+      color:
+        var(--info);
+
+      border-color:
+        #bfd8ee;
+
+    }
+
+
+    /*
+    ========================================
+    NEXT BUTTON
+    ========================================
+    */
+
+    .next-button {
+
+      width:
+        100%;
+
+      margin-top:
+        18px;
+
+      padding:
+        16px 20px;
+
+      border:
+        none;
+
+      border-radius:
+        11px;
+
+      font-size:
+        16px;
+
+      font-weight:
+        800;
+
+      cursor:
+        pointer;
+
+      color:
+        white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy),
+          var(--blue)
+        );
+
+      box-shadow:
+        0 8px 18px
+        rgba(
+          11,
+          47,
+          86,
+          0.18
+        );
+
+      transition:
+        all 0.2s ease;
+
+    }
+
+
+    .next-button:hover {
+
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 10px 24px
+        rgba(
+          11,
+          47,
+          86,
+          0.25
+        );
+
+    }
+
+
+    .next-button:active {
+
+      transform:
+        translateY(1px);
+
+    }
+
+
+    /*
+    ========================================
+    FOOTER
+    ========================================
+    */
+
+    .footer {
+
+      text-align:
+        center;
+
+      padding:
+        25px 20px;
+
+      font-size:
+        12px;
+
+      color:
+        #758596;
+
+      line-height:
+        1.6;
+
+    }
+
+
+    .footer strong {
+
+      color:
+        var(--navy);
+
+    }
+
+
+    /*
+    ========================================
+    MOBILE
+    ========================================
+    */
+
+    @media (
+      max-width:
+      600px
+    ) {
+
+      body {
+
+        background:
+          linear-gradient(
+            180deg,
+            var(--navy-dark) 0px,
+            var(--navy) 245px,
+            var(--background) 245px,
+            var(--background) 100%
+          );
+
+      }
+
+
+      .hero {
+
+        padding:
+          25px 16px 76px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          31px;
+
+      }
+
+
+      .hero-subtitle {
+
+        font-size:
+          15px;
+
+      }
+
+
+      .container {
+
+        margin-top:
+          -48px;
+
+      }
+
+
+      .card-content {
+
+        padding:
+          20px 16px;
+
+      }
+
+
+      .section-heading h2 {
+
+        font-size:
+          22px;
+
+      }
+
+
+      #result {
+
+        padding:
+          20px 15px;
+
+      }
+
+
+      #result h2 {
+
+        font-size:
+          22px;
+
+      }
+
+    }
+
+  </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-  <div class="card">
+  <!-- ======================================
+       HEADER
+       ====================================== -->
 
-    <h1>AAPBS Annual Meeting 2026</h1>
+  <header class="hero">
 
-    <div class="subtitle">
-      Participant Check-in
+    <div class="event-badge">
+      AAPBS Annual Meeting 2026
     </div>
 
-    <label for="scannerLocation">
-      Scanner Location
-    </label>
+    <h1>
+      Participant
+      <span>Check-in</span>
+    </h1>
 
-    <select id="scannerLocation">
-      <option value="Main Entrance">
-        Main Entrance
-      </option>
-
-      <option value="Registration Desk">
-        Registration Desk
-      </option>
-
-      <option value="Ballroom Entrance">
-        Ballroom Entrance
-      </option>
-
-      <option value="Seminar Room">
-        Seminar Room
-      </option>
-    </select>
-
-    <div id="reader"></div>
-
-    <div id="result"></div>
-
-    <div class="hint">
-      Please allow camera access when requested.
-      You may also use “Scan an Image File” for testing.
+    <div class="hero-subtitle">
+      Welcome to AAPBS Annual Meeting 2026
+      <br>
+      Bali, Indonesia
     </div>
 
-  </div>
+  </header>
 
-</div>
+
+
+  <!-- ======================================
+       MAIN
+       ====================================== -->
+
+  <main class="container">
+
+    <div class="card">
+
+      <div class="card-top-accent"></div>
+
+
+      <div class="card-content">
+
+
+        <div class="section-heading">
+
+          <h2>
+            QR Attendance Scanner
+          </h2>
+
+          <p>
+            Select the scanner location and scan
+            the participant QR code.
+          </p>
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+
+        <div class="field">
+
+          <label
+            for="scannerLocation"
+          >
+            Scanner Location
+          </label>
+
+
+          <div class="select-wrapper">
+
+            <select
+              id="scannerLocation"
+            >
+
+              <option
+                value="Main Entrance"
+              >
+                Main Entrance
+              </option>
+
+
+              <option
+                value="Registration Desk"
+              >
+                Registration Desk
+              </option>
+
+
+              <option
+                value="Ballroom Entrance"
+              >
+                Ballroom Entrance
+              </option>
+
+
+              <option
+                value="Seminar Room"
+              >
+                Seminar Room
+              </option>
+
+            </select>
+
+
+            <span class="select-arrow">
+              ▼
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- SCANNER -->
+
+        <div class="scanner-box">
+
+          <div id="reader"></div>
+
+        </div>
+
+
+
+        <div class="scan-guide">
+
+          <div class="scan-icon">
+            📷
+          </div>
+
+          <div>
+
+            Allow camera access when requested.
+
+            <br>
+
+            Position the participant QR code
+            inside the scanner area.
+
+          </div>
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div id="result"></div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer">
+
+      <strong>
+        AAPBS Annual Meeting 2026
+      </strong>
+
+      <br>
+
+      Hosted by Universitas Terbuka
+
+    </div>
+
+  </main>
+
 
 
 <script>
 
+
+/*
+===========================================================
+WEB APP DATABASE
+===========================================================
+*/
+
+
 const WEB_APP_URL =
-"https://script.google.com/macros/s/AKfycbyOwTh_jI1WQ0EgpJ5ouz_leRguV47yHGLgWbeImkrtVuIZV1tcAKQBI7WPNPjuU-df2A/exec";
+"https://script.google.com/macros/s/AKfycbzsN2SGpg8zm1Nl5HJ_-OB4k__m2uW60avtbs3cjYID_ZycgtzLSKgV3DQObFGJR2REyQ/exec";
 
 
-let scanLocked = false;
-let jsonpCounter = 0;
+
+let scanLocked =
+  false;
+
+
+let jsonpCounter =
+  0;
+
 
 
 /*
-========================================
-JSONP REQUEST TO APPS SCRIPT
-========================================
+===========================================================
+JSONP REQUEST
+===========================================================
 */
+
 
 function jsonpRequest(
   params,
@@ -200,7 +1184,9 @@ function jsonpRequest(
   onError
 ) {
 
+
   jsonpCounter++;
+
 
   const callbackName =
     "aapbsCallback_" +
@@ -208,68 +1194,135 @@ function jsonpRequest(
     "_" +
     jsonpCounter;
 
-  const script =
-    document.createElement("script");
 
-  let finished = false;
+  const script =
+    document.createElement(
+      "script"
+    );
+
+
+  let finished =
+    false;
+
 
 
   const timer =
     setTimeout(
+
       function() {
+
 
         if (finished) {
           return;
         }
 
-        finished = true;
+
+        finished =
+          true;
+
 
         try {
-          delete window[callbackName];
+
+          delete window[
+            callbackName
+          ];
+
         } catch (e) {}
 
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
+
+        if (
+          script.parentNode
+        ) {
+
+          script
+            .parentNode
+            .removeChild(
+              script
+            );
+
         }
 
+
         onError(
-          "Database tidak merespons. Silakan coba kembali."
+          "Database did not respond. Please try again."
         );
 
+
       },
+
       15000
+
     );
 
 
-  window[callbackName] =
-    function(response) {
+
+  window[
+    callbackName
+  ] =
+    function(
+      response
+    ) {
+
 
       if (finished) {
         return;
       }
 
-      finished = true;
 
-      clearTimeout(timer);
+      finished =
+        true;
+
+
+      clearTimeout(
+        timer
+      );
+
 
       try {
-        delete window[callbackName];
+
+        delete window[
+          callbackName
+        ];
+
       } catch (e) {}
 
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
+
+      if (
+        script.parentNode
+      ) {
+
+        script
+          .parentNode
+          .removeChild(
+            script
+          );
+
       }
 
-      onSuccess(response);
+
+      onSuccess(
+        response
+      );
+
     };
+
 
 
   const query =
     new URLSearchParams({
+
       ...params,
-      callback: callbackName,
-      _ts: Date.now().toString()
+
+      callback:
+        callbackName,
+
+      _ts:
+        Date
+          .now()
+          .toString()
+
     });
+
 
 
   script.src =
@@ -278,40 +1331,70 @@ function jsonpRequest(
     query.toString();
 
 
+
   script.onerror =
     function() {
+
 
       if (finished) {
         return;
       }
 
-      finished = true;
 
-      clearTimeout(timer);
+      finished =
+        true;
+
+
+      clearTimeout(
+        timer
+      );
+
 
       try {
-        delete window[callbackName];
+
+        delete window[
+          callbackName
+        ];
+
       } catch (e) {}
 
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
+
+      if (
+        script.parentNode
+      ) {
+
+        script
+          .parentNode
+          .removeChild(
+            script
+          );
+
       }
 
+
       onError(
-        "Tidak dapat terhubung ke database."
+        "Unable to connect to attendance database."
       );
+
     };
 
 
-  document.body.appendChild(script);
+
+  document.body
+    .appendChild(
+      script
+    );
+
 }
 
 
+
 /*
-========================================
-DISPLAY BOX
-========================================
+===========================================================
+DISPLAY RESULT BOX
+===========================================================
 */
+
 
 function setBox(
   id,
@@ -319,63 +1402,128 @@ function setBox(
   content
 ) {
 
+
   const element =
-    document.getElementById(id);
+    document
+      .getElementById(
+        id
+      );
+
 
   element.className =
     className;
 
+
   element.innerHTML =
     content;
 
+
   element.style.display =
     "block";
+
+
+  setTimeout(
+    function() {
+
+      element
+        .scrollIntoView({
+          behavior:
+            "smooth",
+
+          block:
+            "center"
+        });
+
+    },
+
+    100
+
+  );
+
 }
 
 
+
 /*
-========================================
+===========================================================
 ESCAPE HTML
-========================================
+===========================================================
 */
 
-function escapeHtml(text) {
 
-  return String(text || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+function escapeHtml(
+  text
+) {
+
+
+  return String(
+    text || ""
+  )
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
 }
 
 
+
 /*
-========================================
-BUTTON: SCAN NEXT PARTICIPANT
-========================================
+===========================================================
+NEXT PARTICIPANT BUTTON
+===========================================================
 */
+
 
 function showContinueButton() {
 
+
   const result =
-    document.getElementById(
-      "result"
-    );
+    document
+      .getElementById(
+        "result"
+      );
+
 
   const button =
-    document.createElement(
-      "button"
-    );
+    document
+      .createElement(
+        "button"
+      );
+
 
   button.type =
     "button";
 
+
   button.className =
     "next-button";
 
-  button.innerText =
-    "OK - Scan Next Participant";
+
+  button.innerHTML =
+    "✓ OK &nbsp;–&nbsp; Scan Next Participant";
+
 
   button.onclick =
     function() {
@@ -385,42 +1533,57 @@ function showContinueButton() {
     };
 
 
-  result.appendChild(
-    button
-  );
+  result
+    .appendChild(
+      button
+    );
+
 }
 
 
+
 /*
-========================================
+===========================================================
 QR SCAN
-========================================
+===========================================================
 */
+
 
 function onScanSuccess(
   decodedText
 ) {
 
-  if (scanLocked) {
+
+  if (
+    scanLocked
+  ) {
+
     return;
+
   }
 
 
-  scanLocked = true;
+  scanLocked =
+    true;
+
 
 
   setBox(
+
     "result",
+
     "processing",
 
     "<div class='status-title'>" +
-    "Checking..." +
+      "Checking Participant..." +
     "</div>" +
 
     "<p>" +
-    "QR Code sedang diverifikasi." +
+      "Please wait while the QR code is verified." +
     "</p>"
+
   );
+
 
 
   const location =
@@ -431,15 +1594,27 @@ function onScanSuccess(
       .value;
 
 
+
   jsonpRequest(
 
+
     {
-      action: "checkin",
-      token: decodedText.trim(),
-      location: location
+
+      action:
+        "checkin",
+
+      token:
+        decodedText.trim(),
+
+      location:
+        location
+
     },
 
-    function(response) {
+
+    function(
+      response
+    ) {
 
       showResult(
         response
@@ -447,20 +1622,30 @@ function onScanSuccess(
 
     },
 
-    function(message) {
+
+    function(
+      message
+    ) {
+
 
       setBox(
+
         "result",
+
         "invalid",
 
         "<div class='status-title'>" +
-        "❌ CONNECTION ERROR" +
+          "❌ CONNECTION ERROR" +
         "</div>" +
 
         "<p>" +
-        escapeHtml(message) +
+          escapeHtml(
+            message
+          ) +
         "</p>"
+
       );
+
 
       showContinueButton();
 
@@ -471,299 +1656,353 @@ function onScanSuccess(
 }
 
 
+
 /*
-========================================
+===========================================================
 SHOW RESULT
-========================================
+===========================================================
 */
+
 
 function showResult(
   response
 ) {
 
-  if (!response) {
+
+  if (
+    !response
+  ) {
+
 
     setBox(
+
       "result",
+
       "invalid",
 
       "<div class='status-title'>" +
-      "❌ ERROR" +
+        "❌ ERROR" +
       "</div>" +
 
       "<p>" +
-      "No response from database." +
+        "No response from database." +
       "</p>"
+
     );
+
 
     showContinueButton();
 
+
     return;
+
   }
 
 
+
   /*
-  ========================================
+  =========================================================
   CHECK-IN SUCCESS
-  ========================================
+  =========================================================
   */
+
 
   if (
     response.type ===
     "success"
   ) {
 
+
     setBox(
+
       "result",
+
       "success",
 
       "<div class='status-title'>" +
-      "✅ CHECK-IN SUCCESS" +
+        "✅ CHECK-IN SUCCESS" +
       "</div>" +
 
       "<h2>" +
-      escapeHtml(
-        response.name
-      ) +
+        escapeHtml(
+          response.name
+        ) +
       "</h2>" +
 
       "<p>" +
-      escapeHtml(
-        response.institution
-      ) +
+        escapeHtml(
+          response.institution
+        ) +
       "</p>" +
 
       "<p>" +
-      "Payment Status:<br>" +
+        "Payment Status<br>" +
 
-      "<strong>" +
-      escapeHtml(
-        response.paymentStatus
-      ) +
-      "</strong>" +
+        "<strong>" +
+          escapeHtml(
+            response.paymentStatus
+          ) +
+        "</strong>" +
 
       "</p>" +
 
       "<p>" +
-      "Location:<br>" +
+        "Check-in Location<br>" +
 
-      "<strong>" +
-      escapeHtml(
-        response.location
-      ) +
-      "</strong>" +
+        "<strong>" +
+          escapeHtml(
+            response.location
+          ) +
+        "</strong>" +
 
       "</p>"
+
     );
+
 
     showContinueButton();
 
   }
 
 
+
   /*
-  ========================================
-  ALREADY CHECKED-IN
-  ========================================
+  =========================================================
+  ALREADY CHECKED IN
+  =========================================================
   */
+
 
   else if (
     response.type ===
     "duplicate"
   ) {
 
+
     setBox(
+
       "result",
+
       "duplicate",
 
       "<div class='status-title'>" +
-      "⚠️ ALREADY CHECKED IN" +
+        "⚠️ ALREADY CHECKED IN" +
       "</div>" +
 
       "<h2>" +
-      escapeHtml(
-        response.name
-      ) +
+        escapeHtml(
+          response.name
+        ) +
       "</h2>" +
 
       "<p>" +
-      escapeHtml(
-        response.institution
-      ) +
+        escapeHtml(
+          response.institution
+        ) +
       "</p>" +
 
       "<p>" +
-      "Previous Check-in:<br>" +
+        "Previous Check-in<br>" +
 
-      "<strong>" +
-      escapeHtml(
-        response.checkInTime
-      ) +
-      "</strong>" +
+        "<strong>" +
+          escapeHtml(
+            response.checkInTime
+          ) +
+        "</strong>" +
 
       "</p>"
+
     );
+
 
     showContinueButton();
 
   }
 
 
+
   /*
-  ========================================
+  =========================================================
   CASH ONSITE
-  ========================================
+  =========================================================
   */
+
 
   else if (
     response.type ===
     "cash"
   ) {
 
+
     setBox(
+
       "result",
+
       "cash",
 
       "<div class='status-title'>" +
-      "⚠️ CASH ONSITE" +
+        "⚠️ CASH ONSITE" +
       "</div>" +
 
       "<h2>" +
-      escapeHtml(
-        response.name
-      ) +
+        escapeHtml(
+          response.name
+        ) +
       "</h2>" +
 
       "<p>" +
-      escapeHtml(
-        response.institution
-      ) +
+        escapeHtml(
+          response.institution
+        ) +
       "</p>" +
 
       "<p>" +
-      "Please proceed to the " +
+        "Please proceed to the " +
 
-      "<strong>" +
-      "Registration Desk" +
-      "</strong>" +
+        "<strong>" +
+          "Registration Desk" +
+        "</strong>" +
 
-      " for payment verification." +
+        " for payment verification." +
 
       "</p>"
+
     );
+
 
     showContinueButton();
 
   }
 
 
+
   /*
-  ========================================
+  =========================================================
   PAYMENT NOT VERIFIED
-  ========================================
+  =========================================================
   */
+
 
   else if (
     response.type ===
     "payment"
   ) {
 
+
     setBox(
+
       "result",
+
       "payment",
 
       "<div class='status-title'>" +
-      "❌ PAYMENT NOT VERIFIED" +
+        "❌ PAYMENT NOT VERIFIED" +
       "</div>" +
 
       "<h2>" +
-      escapeHtml(
-        response.name
-      ) +
+        escapeHtml(
+          response.name
+        ) +
       "</h2>" +
 
       "<p>" +
-      escapeHtml(
-        response.institution
-      ) +
+        escapeHtml(
+          response.institution
+        ) +
       "</p>" +
 
       "<p>" +
-      "Payment Status:<br>" +
+        "Payment Status<br>" +
 
-      "<strong>" +
-      escapeHtml(
-        response.paymentStatus
-      ) +
-      "</strong>" +
+        "<strong>" +
+          escapeHtml(
+            response.paymentStatus
+          ) +
+        "</strong>" +
 
       "</p>" +
 
       "<p>" +
-      "Please contact the Registration Desk." +
+        "Please contact the Registration Desk." +
       "</p>"
+
     );
+
 
     showContinueButton();
 
   }
 
 
+
   /*
-  ========================================
+  =========================================================
   INVALID QR
-  ========================================
+  =========================================================
   */
+
 
   else if (
     response.type ===
     "invalid"
   ) {
 
+
     setBox(
+
       "result",
+
       "invalid",
 
       "<div class='status-title'>" +
-      "❌ INVALID QR CODE" +
+        "❌ INVALID QR CODE" +
       "</div>" +
 
       "<p>" +
-      escapeHtml(
-        response.message ||
-        "Participant not found."
-      ) +
+        escapeHtml(
+          response.message ||
+          "Participant not found."
+        ) +
       "</p>"
+
     );
+
 
     showContinueButton();
 
   }
 
 
+
   /*
-  ========================================
+  =========================================================
   SYSTEM ERROR
-  ========================================
+  =========================================================
   */
+
 
   else {
 
+
     setBox(
+
       "result",
+
       "invalid",
 
       "<div class='status-title'>" +
-      "❌ SYSTEM ERROR" +
+        "❌ SYSTEM ERROR" +
       "</div>" +
 
       "<p>" +
-      escapeHtml(
-        response.message ||
-        "Unknown error."
-      ) +
+        escapeHtml(
+          response.message ||
+          "Unknown error."
+        ) +
       "</p>"
+
     );
+
 
     showContinueButton();
 
@@ -772,35 +2011,66 @@ function showResult(
 }
 
 
+
 /*
-========================================
-RESET SCANNER
-========================================
+===========================================================
+RESET FOR NEXT PARTICIPANT
+===========================================================
 */
+
 
 function resetScanner() {
 
+
   const result =
-    document.getElementById(
-      "result"
-    );
+    document
+      .getElementById(
+        "result"
+      );
+
 
   result.style.display =
     "none";
 
+
   result.innerHTML =
     "";
 
+
   scanLocked =
     false;
+
+
+
+  /*
+  Scroll back to scanner
+  */
+
+
+  document
+    .getElementById(
+      "reader"
+    )
+    .scrollIntoView({
+
+      behavior:
+        "smooth",
+
+      block:
+        "center"
+
+    });
+
 }
 
 
+
 /*
-========================================
+===========================================================
 START QR SCANNER
-========================================
+===========================================================
 */
+
 
 const scanner =
   new Html5QrcodeScanner(
@@ -809,11 +2079,17 @@ const scanner =
 
     {
 
-      fps: 10,
+      fps:
+        10,
 
       qrbox: {
-        width: 250,
-        height: 250
+
+        width:
+          250,
+
+        height:
+          250
+
       },
 
       rememberLastUsedCamera:
@@ -832,11 +2108,15 @@ const scanner =
   );
 
 
+
 scanner.render(
   onScanSuccess
 );
 
+
 </script>
+
 
 </body>
 </html>
+```
