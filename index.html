@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -19,36 +20,53 @@
   <style>
 
     :root {
+
       --navy: #0b2f56;
+
       --navy-dark: #071f3a;
+
       --blue: #155da0;
+
       --blue-light: #2b78bb;
+
       --gold: #f3b41b;
+
       --gold-soft: #ffd766;
 
       --white: #ffffff;
+
       --background: #eef3f8;
 
       --text: #17324d;
+
       --muted: #6b7a89;
 
       --green: #1f8b4c;
+
       --green-bg: #e8f7ee;
 
       --yellow: #9a6b00;
+
       --yellow-bg: #fff5d6;
 
       --red: #b42318;
+
       --red-bg: #fdecec;
 
       --info: #155da0;
+
       --info-bg: #e8f2fb;
+
     }
+
 
 
     * {
+
       box-sizing: border-box;
+
     }
+
 
 
     body {
@@ -77,11 +95,11 @@
     }
 
 
-    /*
-    ========================================
-    HEADER
-    ========================================
-    */
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
 
     .hero {
 
@@ -100,6 +118,7 @@
         var(--white);
 
     }
+
 
 
     .event-badge {
@@ -148,6 +167,7 @@
     }
 
 
+
     .hero h1 {
 
       margin:
@@ -169,12 +189,14 @@
     }
 
 
+
     .hero h1 span {
 
       color:
         var(--gold-soft);
 
     }
+
 
 
     .hero-subtitle {
@@ -194,11 +216,11 @@
     }
 
 
-    /*
-    ========================================
-    MAIN
-    ========================================
-    */
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
 
     .container {
 
@@ -212,6 +234,7 @@
         -58px auto 40px;
 
     }
+
 
 
     .card {
@@ -237,6 +260,7 @@
     }
 
 
+
     .card-top-accent {
 
       height:
@@ -253,12 +277,14 @@
     }
 
 
+
     .card-content {
 
       padding:
         28px;
 
     }
+
 
 
     .section-heading {
@@ -270,6 +296,7 @@
         26px;
 
     }
+
 
 
     .section-heading h2 {
@@ -284,6 +311,7 @@
         26px;
 
     }
+
 
 
     .section-heading p {
@@ -303,11 +331,11 @@
     }
 
 
-    /*
-    ========================================
-    LOCATION
-    ========================================
-    */
+
+    /* =====================================================
+       LOCATION
+    ===================================================== */
+
 
     .field {
 
@@ -315,6 +343,7 @@
         22px;
 
     }
+
 
 
     .field label {
@@ -343,12 +372,14 @@
     }
 
 
+
     .select-wrapper {
 
       position:
         relative;
 
     }
+
 
 
     select {
@@ -389,6 +420,7 @@
     }
 
 
+
     select:focus {
 
       border-color:
@@ -404,6 +436,7 @@
         );
 
     }
+
 
 
     .select-arrow {
@@ -432,11 +465,11 @@
     }
 
 
-    /*
-    ========================================
-    SCANNER
-    ========================================
-    */
+
+    /* =====================================================
+       SCANNER
+    ===================================================== */
+
 
     .scanner-box {
 
@@ -453,6 +486,7 @@
         12px;
 
     }
+
 
 
     #reader {
@@ -472,12 +506,14 @@
     }
 
 
+
     #reader video {
 
       border-radius:
         10px;
 
     }
+
 
 
     #reader button {
@@ -509,12 +545,14 @@
     }
 
 
+
     #reader button:hover {
 
       background:
         var(--blue);
 
     }
+
 
 
     #reader select {
@@ -534,6 +572,7 @@
     }
 
 
+
     #reader a {
 
       color:
@@ -545,11 +584,11 @@
     }
 
 
-    /*
-    ========================================
-    SCANNER GUIDE
-    ========================================
-    */
+
+    /* =====================================================
+       SCANNER GUIDE
+    ===================================================== */
+
 
     .scan-guide {
 
@@ -586,6 +625,7 @@
     }
 
 
+
     .scan-icon {
 
       flex:
@@ -597,11 +637,11 @@
     }
 
 
-    /*
-    ========================================
-    RESULT
-    ========================================
-    */
+
+    /* =====================================================
+       RESULT
+    ===================================================== */
+
 
     #result {
 
@@ -630,23 +670,32 @@
     }
 
 
+
     @keyframes resultAppear {
 
       from {
-        opacity: 0;
+
+        opacity:
+          0;
 
         transform:
           translateY(8px);
+
       }
 
+
       to {
-        opacity: 1;
+
+        opacity:
+          1;
 
         transform:
           translateY(0);
+
       }
 
     }
+
 
 
     .status-title {
@@ -663,6 +712,7 @@
     }
 
 
+
     #result h2 {
 
       margin:
@@ -677,6 +727,7 @@
     }
 
 
+
     #result p {
 
       margin:
@@ -686,6 +737,7 @@
         1.55;
 
     }
+
 
 
     .success {
@@ -702,20 +754,8 @@
     }
 
 
-    .duplicate {
 
-      background:
-        var(--yellow-bg);
-
-      color:
-        #795400;
-
-      border-color:
-        #f2d482;
-
-    }
-
-
+    .duplicate,
     .cash {
 
       background:
@@ -728,6 +768,7 @@
         #f2d482;
 
     }
+
 
 
     .payment,
@@ -745,6 +786,7 @@
     }
 
 
+
     .processing {
 
       background:
@@ -759,11 +801,11 @@
     }
 
 
-    /*
-    ========================================
-    NEXT BUTTON
-    ========================================
-    */
+
+    /* =====================================================
+       NEXT BUTTON
+    ===================================================== */
+
 
     .next-button {
 
@@ -816,6 +858,7 @@
     }
 
 
+
     .next-button:hover {
 
       transform:
@@ -833,6 +876,7 @@
     }
 
 
+
     .next-button:active {
 
       transform:
@@ -841,23 +885,31 @@
     }
 
 
-    /*
-    ========================================
-    SUPPORTING PARTNERS
-    ========================================
-    */
+
+    /* =====================================================
+       SUPPORTING PARTNERS - LOGO WALL
+    ===================================================== */
+
 
     .partners-section {
-      margin-top: 24px;
+
+      margin-top:
+        24px;
+
     }
 
 
+
     .partners-card {
-      background: var(--white);
 
-      border-radius: 22px;
+      background:
+        var(--white);
 
-      overflow: hidden;
+      border-radius:
+        22px;
+
+      overflow:
+        hidden;
 
       box-shadow:
         0 18px 55px
@@ -867,113 +919,114 @@
           55,
           0.12
         );
+
     }
+
 
 
     .partners-content {
-      padding: 28px;
+
+      padding:
+        32px 28px;
+
     }
+
 
 
     .partners-heading {
-      text-align: center;
 
-      margin-bottom: 24px;
+      text-align:
+        center;
+
+      margin-bottom:
+        28px;
+
     }
+
 
 
     .partners-label {
-      display: inline-block;
 
-      margin-bottom: 8px;
+      display:
+        inline-block;
 
-      color: var(--blue);
+      margin-bottom:
+        8px;
 
-      font-size: 11px;
+      color:
+        var(--blue);
 
-      font-weight: 800;
+      font-size:
+        11px;
 
-      letter-spacing: 1.5px;
+      font-weight:
+        800;
 
-      text-transform: uppercase;
+      letter-spacing:
+        1.5px;
+
+      text-transform:
+        uppercase;
+
     }
+
 
 
     .partners-heading h3 {
-      margin: 0;
 
-      color: var(--navy);
+      margin:
+        0;
 
-      font-size: 24px;
+      color:
+        var(--navy);
+
+      font-size:
+        24px;
+
     }
+
 
 
     .partners-heading p {
+
       margin:
         8px 0 0;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
+
     }
 
 
-    .partners-grid {
-      display: grid;
+
+    .partners-logo-wall {
+
+      display:
+        grid;
 
       grid-template-columns:
         repeat(2, 1fr);
 
-      gap: 18px;
-    }
+      gap:
+        28px;
 
-
-    .partner-item {
-      background: #f7fafc;
-
-      border:
-        1px solid #dce5ee;
-
-      border-radius: 18px;
-
-      padding: 18px;
-
-      text-align: center;
-
-      transition:
-        all 0.2s ease;
-    }
-
-
-    .partner-item:hover {
-
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 10px 24px
-        rgba(
-          11,
-          47,
-          86,
-          0.10
-        );
+      align-items:
+        center;
 
     }
 
 
-    .partner-logo-wrap {
 
-      background:
-        #050505;
-
-      border-radius:
-        14px;
+    .partner-logo-item {
 
       min-height:
-        175px;
+        180px;
 
       display:
         flex;
@@ -985,67 +1038,83 @@
         center;
 
       padding:
+        22px;
+
+      background:
+        #050505;
+
+      border-radius:
         18px;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.06
+        );
+
+      box-shadow:
+        inset 0 0 0 1px
+        rgba(
+          255,
+          255,
+          255,
+          0.03
+        );
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
     }
 
 
-    .partner-logo {
+
+    .partner-logo-item:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 12px 28px
+        rgba(
+          11,
+          47,
+          86,
+          0.12
+        );
+
+    }
+
+
+
+    .partner-logo-wall img {
+
+      display:
+        block;
 
       width:
         100%;
 
       max-width:
-        240px;
+        250px;
 
       max-height:
-        145px;
+        135px;
 
       object-fit:
         contain;
 
-      display:
-        block;
-
     }
 
 
-    .partner-name {
 
-      margin-top:
-        14px;
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
-      font-size:
-        15px;
-
-      font-weight:
-        800;
-
-      color:
-        var(--navy);
-
-    }
-
-
-    .partner-role {
-
-      margin-top:
-        4px;
-
-      font-size:
-        12px;
-
-      color:
-        var(--muted);
-
-    }
-
-
-    /*
-    ========================================
-    FOOTER
-    ========================================
-    */
 
     .footer {
 
@@ -1067,6 +1136,7 @@
     }
 
 
+
     .footer strong {
 
       color:
@@ -1075,16 +1145,17 @@
     }
 
 
-    /*
-    ========================================
-    MOBILE
-    ========================================
-    */
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
 
     @media (
       max-width:
       600px
     ) {
+
 
       body {
 
@@ -1100,12 +1171,14 @@
       }
 
 
+
       .hero {
 
         padding:
           25px 16px 76px;
 
       }
+
 
 
       .hero h1 {
@@ -1116,12 +1189,14 @@
       }
 
 
+
       .hero-subtitle {
 
         font-size:
           15px;
 
       }
+
 
 
       .container {
@@ -1132,12 +1207,14 @@
       }
 
 
+
       .card-content {
 
         padding:
           20px 16px;
 
       }
+
 
 
       .section-heading h2 {
@@ -1148,12 +1225,14 @@
       }
 
 
+
       #result {
 
         padding:
           20px 15px;
 
       }
+
 
 
       #result h2 {
@@ -1164,102 +1243,148 @@
       }
 
 
+
       .partners-content {
 
         padding:
-          22px 16px;
+          24px 16px;
 
       }
 
 
-      .partners-grid {
+
+      .partners-logo-wall {
 
         grid-template-columns:
           1fr;
 
+        gap:
+          18px;
+
       }
 
 
-      .partner-logo-wrap {
+
+      .partner-logo-item {
 
         min-height:
-          145px;
+          150px;
+
+        padding:
+          18px;
 
       }
 
 
-      .partner-logo {
+
+      .partner-logo-wall img {
+
+        max-width:
+          220px;
 
         max-height:
-          120px;
+          115px;
 
       }
 
     }
+
 
   </style>
 
 </head>
 
 
+
 <body>
 
 
-  <!-- ======================================
+  <!-- =====================================================
        HEADER
-       ====================================== -->
+  ====================================================== -->
+
 
   <header class="hero">
 
+
     <div class="event-badge">
+
       AAPBS Annual Meeting 2026
+
     </div>
+
 
 
     <h1>
+
       Participant
-      <span>Check-in</span>
+
+      <span>
+        Check-in
+      </span>
+
     </h1>
 
 
+
     <div class="hero-subtitle">
+
       Welcome to AAPBS Annual Meeting 2026
+
       <br>
+
       Bali, Indonesia
+
     </div>
+
 
   </header>
 
 
 
-  <!-- ======================================
+  <!-- =====================================================
        MAIN
-       ====================================== -->
+  ====================================================== -->
+
 
   <main class="container">
 
 
-    <!-- QR SCANNER CARD -->
+
+    <!-- =================================================
+         SCANNER CARD
+    ================================================== -->
+
 
     <div class="card">
 
+
       <div class="card-top-accent"></div>
+
 
 
       <div class="card-content">
 
 
+
         <div class="section-heading">
 
+
           <h2>
+
             QR Attendance Scanner
+
           </h2>
 
 
+
           <p>
+
             Select the scanner location and scan
             the participant QR code.
+
           </p>
+
 
         </div>
 
@@ -1267,56 +1392,80 @@
 
         <!-- LOCATION -->
 
+
         <div class="field">
+
 
           <label
             for="scannerLocation"
           >
+
             Scanner Location
+
           </label>
 
 
+
           <div class="select-wrapper">
+
 
             <select
               id="scannerLocation"
             >
 
+
               <option
                 value="Main Entrance"
               >
+
                 Main Entrance
+
               </option>
+
 
 
               <option
                 value="Registration Desk"
               >
+
                 Registration Desk
+
               </option>
+
 
 
               <option
                 value="Ballroom Entrance"
               >
+
                 Ballroom Entrance
+
               </option>
+
 
 
               <option
                 value="Seminar Room"
               >
+
                 Seminar Room
+
               </option>
+
 
             </select>
 
 
+
             <span class="select-arrow">
+
               ▼
+
             </span>
 
+
           </div>
+
 
         </div>
 
@@ -1324,19 +1473,31 @@
 
         <!-- SCANNER -->
 
+
         <div class="scanner-box">
 
-          <div id="reader"></div>
+
+          <div
+            id="reader"
+          ></div>
+
 
         </div>
 
 
 
+        <!-- SCANNER GUIDE -->
+
+
         <div class="scan-guide">
 
+
           <div class="scan-icon">
+
             📷
+
           </div>
+
 
 
           <div>
@@ -1350,83 +1511,93 @@
 
           </div>
 
+
         </div>
 
 
 
         <!-- RESULT -->
 
-        <div id="result"></div>
+
+        <div
+          id="result"
+        ></div>
+
 
 
       </div>
+
 
     </div>
 
 
 
-    <!-- ======================================
+    <!-- =================================================
          SUPPORTING PARTNERS
-         ====================================== -->
+    ================================================== -->
+
 
     <section class="partners-section">
 
+
       <div class="partners-card">
+
 
 
         <div class="card-top-accent"></div>
 
 
+
         <div class="partners-content">
+
 
 
           <div class="partners-heading">
 
+
             <div class="partners-label">
+
               With the Support of
+
             </div>
 
 
+
             <h3>
+
               Supporting Partners
+
             </h3>
 
 
+
             <p>
+
               We gratefully acknowledge the support
               of our valued partners.
+
             </p>
+
 
           </div>
 
 
 
-          <div class="partners-grid">
+          <div class="partners-logo-wall">
+
 
 
             <!-- GULAVIT -->
 
-            <div class="partner-item">
 
-              <div class="partner-logo-wrap">
-
-                <img
-                  src="assets/gulavit.png"
-                  alt="GulaVit"
-                  class="partner-logo"
-                >
-
-              </div>
+            <div class="partner-logo-item">
 
 
-              <div class="partner-name">
-                GulaVit
-              </div>
+              <img
+                src="assets/gulavit.png"
+                alt="GulaVit"
+              >
 
-
-              <div class="partner-role">
-                Supporting Partner
-              </div>
 
             </div>
 
@@ -1434,29 +1605,18 @@
 
             <!-- TAKOKAK WIN'S TEA -->
 
-            <div class="partner-item">
 
-              <div class="partner-logo-wrap">
-
-                <img
-                  src="assets/takokak-wins-tea.png"
-                  alt="Takokak Win's Tea"
-                  class="partner-logo"
-                >
-
-              </div>
+            <div class="partner-logo-item">
 
 
-              <div class="partner-name">
-                Takokak Win's Tea
-              </div>
+              <img
+                src="assets/takokak-wins-tea.png"
+                alt="Takokak Win's Tea"
+              >
 
-
-              <div class="partner-role">
-                Supporting Partner
-              </div>
 
             </div>
+
 
 
           </div>
@@ -1464,25 +1624,37 @@
 
         </div>
 
+
       </div>
+
 
     </section>
 
 
 
-    <!-- FOOTER -->
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
 
     <div class="footer">
 
+
       <strong>
+
         AAPBS Annual Meeting 2026
+
       </strong>
+
 
       <br>
 
+
       Hosted by Universitas Terbuka
 
+
     </div>
+
 
 
   </main>
@@ -1555,7 +1727,9 @@ function jsonpRequest(
 
 
         if (finished) {
+
           return;
+
         }
 
 
@@ -1569,7 +1743,9 @@ function jsonpRequest(
             callbackName
           ];
 
-        } catch (e) {}
+        }
+
+        catch (e) {}
 
 
         if (
@@ -1607,7 +1783,9 @@ function jsonpRequest(
 
 
       if (finished) {
+
         return;
+
       }
 
 
@@ -1626,7 +1804,9 @@ function jsonpRequest(
           callbackName
         ];
 
-      } catch (e) {}
+      }
+
+      catch (e) {}
 
 
       if (
@@ -1646,6 +1826,7 @@ function jsonpRequest(
         response
       );
 
+
     };
 
 
@@ -1653,15 +1834,19 @@ function jsonpRequest(
   const query =
     new URLSearchParams({
 
+
       ...params,
+
 
       callback:
         callbackName,
+
 
       _ts:
         Date
           .now()
           .toString()
+
 
     });
 
@@ -1679,7 +1864,9 @@ function jsonpRequest(
 
 
       if (finished) {
+
         return;
+
       }
 
 
@@ -1698,7 +1885,9 @@ function jsonpRequest(
           callbackName
         ];
 
-      } catch (e) {}
+      }
+
+      catch (e) {}
 
 
       if (
@@ -1718,6 +1907,7 @@ function jsonpRequest(
         "Unable to connect to attendance database."
       );
 
+
     };
 
 
@@ -1726,6 +1916,7 @@ function jsonpRequest(
     .appendChild(
       script
     );
+
 
 }
 
@@ -1765,22 +1956,28 @@ function setBox(
 
 
   setTimeout(
+
     function() {
+
 
       element
         .scrollIntoView({
+
           behavior:
             "smooth",
 
           block:
             "center"
+
         });
+
 
     },
 
     100
 
   );
+
 
 }
 
@@ -1827,6 +2024,7 @@ function escapeHtml(
       "&#039;"
     );
 
+
 }
 
 
@@ -1870,7 +2068,9 @@ function showContinueButton() {
   button.onclick =
     function() {
 
+
       resetScanner();
+
 
     };
 
@@ -1879,6 +2079,7 @@ function showContinueButton() {
     .appendChild(
       button
     );
+
 
 }
 
@@ -1900,7 +2101,9 @@ function onScanSuccess(
     scanLocked
   ) {
 
+
     return;
+
 
   }
 
@@ -1912,9 +2115,12 @@ function onScanSuccess(
 
   setBox(
 
+
     "result",
 
+
     "processing",
+
 
     "<div class='status-title'>" +
       "Checking Participant..." +
@@ -1923,6 +2129,7 @@ function onScanSuccess(
     "<p>" +
       "Please wait while the QR code is verified." +
     "</p>"
+
 
   );
 
@@ -1942,27 +2149,35 @@ function onScanSuccess(
 
     {
 
+
       action:
         "checkin",
+
 
       token:
         decodedText.trim(),
 
+
       location:
         location
 
+
     },
+
 
 
     function(
       response
     ) {
 
+
       showResult(
         response
       );
 
+
     },
+
 
 
     function(
@@ -1972,9 +2187,12 @@ function onScanSuccess(
 
       setBox(
 
+
         "result",
 
+
         "invalid",
+
 
         "<div class='status-title'>" +
           "❌ CONNECTION ERROR" +
@@ -1986,14 +2204,18 @@ function onScanSuccess(
           ) +
         "</p>"
 
+
       );
 
 
       showContinueButton();
 
+
     }
 
+
   );
+
 
 }
 
@@ -2018,9 +2240,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "invalid",
+
 
       "<div class='status-title'>" +
         "❌ ERROR" +
@@ -2030,6 +2255,7 @@ function showResult(
         "No response from database." +
       "</p>"
 
+
     );
 
 
@@ -2037,6 +2263,7 @@ function showResult(
 
 
     return;
+
 
   }
 
@@ -2057,9 +2284,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "success",
+
 
       "<div class='status-title'>" +
         "✅ CHECK-IN SUCCESS" +
@@ -2078,6 +2308,7 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Payment Status<br>" +
 
         "<strong>" +
@@ -2089,6 +2320,7 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Check-in Location<br>" +
 
         "<strong>" +
@@ -2099,10 +2331,12 @@ function showResult(
 
       "</p>"
 
+
     );
 
 
     showContinueButton();
+
 
   }
 
@@ -2123,9 +2357,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "duplicate",
+
 
       "<div class='status-title'>" +
         "⚠️ ALREADY CHECKED IN" +
@@ -2144,6 +2381,7 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Previous Check-in<br>" +
 
         "<strong>" +
@@ -2154,10 +2392,12 @@ function showResult(
 
       "</p>"
 
+
     );
 
 
     showContinueButton();
+
 
   }
 
@@ -2178,9 +2418,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "cash",
+
 
       "<div class='status-title'>" +
         "⚠️ CASH ONSITE" +
@@ -2199,6 +2442,7 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Please proceed to the " +
 
         "<strong>" +
@@ -2209,10 +2453,12 @@ function showResult(
 
       "</p>"
 
+
     );
 
 
     showContinueButton();
+
 
   }
 
@@ -2233,9 +2479,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "payment",
+
 
       "<div class='status-title'>" +
         "❌ PAYMENT NOT VERIFIED" +
@@ -2254,6 +2503,7 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Payment Status<br>" +
 
         "<strong>" +
@@ -2265,13 +2515,17 @@ function showResult(
       "</p>" +
 
       "<p>" +
+
         "Please contact the Registration Desk." +
+
       "</p>"
+
 
     );
 
 
     showContinueButton();
+
 
   }
 
@@ -2292,9 +2546,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "invalid",
+
 
       "<div class='status-title'>" +
         "❌ INVALID QR CODE" +
@@ -2307,10 +2564,12 @@ function showResult(
         ) +
       "</p>"
 
+
     );
 
 
     showContinueButton();
+
 
   }
 
@@ -2328,9 +2587,12 @@ function showResult(
 
     setBox(
 
+
       "result",
 
+
       "invalid",
+
 
       "<div class='status-title'>" +
         "❌ SYSTEM ERROR" +
@@ -2343,12 +2605,15 @@ function showResult(
         ) +
       "</p>"
 
+
     );
 
 
     showContinueButton();
 
+
   }
+
 
 }
 
@@ -2390,13 +2655,17 @@ function resetScanner() {
     )
     .scrollIntoView({
 
+
       behavior:
         "smooth",
+
 
       block:
         "center"
 
+
     });
+
 
 }
 
@@ -2412,35 +2681,48 @@ START QR SCANNER
 const scanner =
   new Html5QrcodeScanner(
 
+
     "reader",
 
+
     {
+
 
       fps:
         10,
 
+
       qrbox: {
+
 
         width:
           250,
 
+
         height:
           250
 
+
       },
+
 
       rememberLastUsedCamera:
         true,
 
+
       showTorchButtonIfSupported:
         true,
+
 
       showZoomSliderIfSupported:
         true
 
+
     },
 
+
     false
+
 
   );
 
